@@ -1,0 +1,197 @@
+@import "../../../abstract/variables";
+@import "../../../abstract/fonts";
+
+.dateRangePicker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: $font-roboto;
+}
+
+.dateRangeButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  width: 100%;
+  min-width: 200px;
+  background-color: $backgrounds-secondary;
+  border: 1px solid $ui-border-light;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    border-color: $brand-sky;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: $ui-background-lighter;
+  }
+
+  &.placeholder {
+    .dateText {
+      color: $brand-medium-gray;
+      font-style: italic;
+    }
+
+    .calendarIcon {
+      color: $brand-medium-gray;
+    }
+
+    &:hover {
+      .dateText {
+        color: $brand-primary;
+      }
+
+      .calendarIcon {
+        color: $brand-primary;
+      }
+    }
+  }
+}
+
+.dateText {
+  font-size: $font-base;
+  font-weight: $weight-medium;
+  color: $brand-dark-gray;
+  transition: color 0.2s ease;
+  flex: 1;
+  user-select: none;
+}
+
+.calendarIcon {
+  margin-left: 0.5rem;
+  color: $brand-medium-gray;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.datePickerDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: $backgrounds-secondary;
+  border: 1px solid $ui-border-gray;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 350px;
+  font-family: $font-roboto;
+}
+
+.dateSection {
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.dateLabel {
+  font-size: $font-base;
+  font-weight: $weight-medium;
+  color: $brand-dark-gray;
+  margin: 0 0 0.5rem 0;
+  display: block;
+}
+
+.selectContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dateSelect {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid $ui-border-gray;
+  border-radius: 0.25rem;
+  font-size: $font-base;
+  font-family: $font-roboto;
+  color: $brand-dark-gray;
+  background: $backgrounds-secondary;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $brand-primary;
+    box-shadow: 0 0 0 3px rgba(9, 75, 156, 0.1);
+  }
+
+  &:hover {
+    border-color: $brand-sky;
+  }
+}
+
+.yearSelect {
+  max-width: 80px;
+}
+
+.monthSelect {
+  min-width: 120px;
+}
+
+.daySelect {
+  max-width: 60px;
+}
+
+.actionSection {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $ui-border-gray;
+}
+
+.actionButtons {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid $ui-border-gray;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.clearButton {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: $brand-medium-gray;
+  border: 1px solid $ui-border-gray;
+  border-radius: 8px;
+  font-family: $font-roboto;
+  font-size: $font-base;
+  font-weight: $weight-medium;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $ui-background-lighter;
+    border-color: $brand-medium-gray;
+    color: $brand-dark-gray;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.confirmButton {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, $brand-primary, $brand-secondary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: $font-roboto;
+  font-size: $font-base;
+  font-weight: $weight-medium;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(9, 75, 156, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

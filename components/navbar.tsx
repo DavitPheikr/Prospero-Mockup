@@ -22,11 +22,34 @@ export default function Navbar() {
       ? [{ label: "Account", href: "/create-account" }]
       : pathname.startsWith("/my-account")
       ? [
-          { label: "Dashboard", href: `/my-account/${accountType}` },
+          { label: "Dashboard", href: `/my-account/${accountType}/dashboard` },
           { label: "Statistics", href: "/my-account/statistics" },
-          { label: "Transactions", href: "/my-account/transactions" },
+          {
+            label: "Transactions",
+            href: `/my-account/${accountType}/transactions`,
+          },
         ]
       : [];
+
+  // Function to check if a nav item should be active based on the last segment
+  const isActive = (href: string, label: string) => {
+    const pathSegments = pathname.split("/").filter(Boolean);
+    const lastSegment = pathSegments[pathSegments.length - 1];
+
+    if (label === "Dashboard") {
+      // Dashboard is active when the last segment is the account type or "dashboard"
+      return lastSegment === accountType || lastSegment === "dashboard";
+    }
+    if (label === "Transactions") {
+      // Transactions is active when the last segment is "transactions"
+      return lastSegment === "transactions";
+    }
+    if (label === "Statistics") {
+      // Statistics is active when the last segment is "statistics"
+      return lastSegment === "statistics";
+    }
+    return pathname === href;
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -39,7 +62,7 @@ export default function Navbar() {
                 <button
                   className={clsx(
                     styles.navButton,
-                    pathname === href && styles.active
+                    isActive(href, label) && styles.active
                   )}
                 >
                   {label}

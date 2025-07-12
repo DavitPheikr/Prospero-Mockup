@@ -1,0 +1,126 @@
+@import '../../../abstract/variables';
+@import '../../../abstract/fonts';
+
+.transactionsPage {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #FFF;
+  max-height: calc(100vh - 80px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+
+.titleSection {
+  flex: 1;
+}
+
+.title {
+  font-family: $font-roboto;
+  font-size: $font-2xl;
+  font-weight: $weight-bold;
+  color: $brand-dark-gray;
+  margin: 0 0 1rem 0;
+}
+
+.dateRange {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.dateText {
+  font-family: $font-roboto;
+  font-size: $font-base;
+  color: $brand-dark-gray;
+}
+
+.calendarIcon {
+  font-size: $font-base-lg;
+  color: $brand-medium-gray;
+}
+
+.balanceSection {
+  flex-shrink: 0;
+}
+
+.balanceCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: $backgrounds-secondary;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  min-width: 220px;
+  border: 1px solid $ui-border-light;
+}
+
+.balanceIcon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, $account-header-start, $account-header-end);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: $weight-bold;
+  font-size: $font-lg;
+  font-family: $font-roboto;
+}
+
+.balanceContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.balanceLabel {
+  font-family: $font-roboto;
+  font-size: $font-base;
+  color: $brand-medium-gray;
+  margin: 0;
+}
+
+.balanceAmount {
+  font-family: $font-roboto;
+  font-size: $font-xl;
+  font-weight: $weight-bold;
+  color: $brand-dark-gray;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .transactionsPage {
+    padding: 1rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .balanceCard {
+    min-width: 100%;
+  }
+
+  .dateRange {
+    width: 100%;
+    justify-content: center;
+  }
+}

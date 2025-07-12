@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import styles from "@/scss/components/hasAccount/RecentTransactionsCard.module.scss";
 import Button from "@/components/ui/Button";
 import TransactionItem from "@/components/ui/TransactionItem";
@@ -13,6 +14,8 @@ interface RecentTransactionsCardProps {
 export default function RecentTransactionsCard({
   type,
 }: RecentTransactionsCardProps) {
+  const router = useRouter();
+
   const transactionsData =
     type === "voluntary"
       ? voluntaryTransactionsData
@@ -22,6 +25,10 @@ export default function RecentTransactionsCard({
 
   const handleTransactionClick = (id: number) => {
     console.log(`Transaction ${id} clicked`);
+  };
+
+  const handleViewAllTransactions = () => {
+    router.push(`/my-account/${type}/transactions`);
   };
 
   return (
@@ -53,7 +60,12 @@ export default function RecentTransactionsCard({
       </div>
 
       <div className={styles.footer}>
-        <Button className={styles.viewAllButton}>View All Transactions</Button>
+        <Button
+          className={styles.viewAllButton}
+          onClick={handleViewAllTransactions}
+        >
+          View All Transactions
+        </Button>
       </div>
     </div>
   );

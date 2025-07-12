@@ -64,7 +64,7 @@ export default function AccountModal({
       );
 
       // Navigate to dynamic dashboard
-      router.push("/my-account/dynamic");
+      router.push("/my-account/dynamic/dashboard");
 
       // Close modal
       onClose();
