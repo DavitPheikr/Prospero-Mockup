@@ -1,0 +1,55 @@
+@use '../../abstract' as *; 
+
+.formGroup {
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+.label {
+  display: block;
+  font-family: $font-lato;
+  font-size: $font-base;
+  font-weight: $weight-bold;
+  color: $brand-dark-gray;
+  margin-bottom: 0.75rem;
+}
+
+.required {
+  color: #dc2626;
+}
+
+.optional {
+  color: $brand-medium-gray;
+  font-weight: $weight-regular;
+}
+
+.highlightedField {
+  position: relative;
+  
+  // Styles for the highlighted state, applied to the TextInput via className
+  .highlighted {
+    border-color: $brand-primary;
+    background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+    
+    &:focus {
+      border-color: $brand-secondary;
+      box-shadow: 0 0 0 4px rgba(3, 105, 161, 0.15);
+    }
+  }
+}
+
+.helperText {
+  margin: 0.75rem 0 0 0;
+  font-family: $font-lato;
+  font-size: $font-xs;
+  color: $brand-primary;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: $weight-medium;
+  
+  &::before {
+    content: "💡";
+    font-size: $font-base;
+  }
+}
