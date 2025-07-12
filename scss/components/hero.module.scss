@@ -1,0 +1,38 @@
+@use '../abstract' as *;
+
+.heroLeft {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 5rem;
+  }
+  
+  .leftColumn {
+    flex: 1;
+    
+    h2 {
+      margin-bottom: 1rem; // Gap between 'Why?' and bullet points
+    }
+  
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem; // Gap between bullet points
+      margin: 0;
+      padding: 0;
+    }
+  }
+  
+  .why{
+      color: $brand-dark-gray;
+      font-size: $font-3xl;
+      font-family: $font-lato;
+      font-weight: $weight-bold;
+  }
+  
+  .bulletPoint {
+      color: $brand-secondary;
+      font-size: $font-lg;
+      font-family: $font-lato;
+      font-weight: $weight-medium;
+  }

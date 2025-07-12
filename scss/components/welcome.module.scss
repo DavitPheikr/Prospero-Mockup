@@ -1,0 +1,75 @@
+@use "../abstract" as *;
+
+.welcomeOuter {
+  max-width: 65%;
+  margin: 0 auto;
+  padding: 0 1.5rem; // Combined padding-left and padding-right
+  margin-top: 3rem; // Increased top margin for better separation from the top of the page
+  margin-bottom: 4rem; // Added bottom margin to separate from the content below
+}
+
+.welcomeTextContainer {
+  font-family: $font-roboto;
+  font-weight: $weight-bold;
+  border-bottom: 1px solid $brand-sky;
+  padding-bottom: 0.8rem; // Increased padding to give more space above the border
+  text-align: center; // Center the text within its container
+}
+
+.welcomeText {
+  color: $brand-secondary;
+  font-size: $font-hero; // Apply font size directly to the text
+  margin-bottom: 0.5rem; // Gap between welcome texts
+  line-height: 1.2; // Improve line spacing for large text
+
+  &:last-child {
+    margin-bottom: 0; // No bottom margin for the last text line
+  }
+}
+
+.nameText {
+  color: $brand-primary;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .welcomeOuter {
+    max-width: 80%; // Increase width on medium screens
+    margin-top: 2.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .welcomeText {
+    font-size: calc($font-hero * 0.8); // Scale down font size
+  }
+}
+
+@media (max-width: 768px) {
+  .welcomeOuter {
+    max-width: 90%; // Increase width on smaller screens
+    padding: 0 1rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .welcomeText {
+    font-size: calc($font-hero * 0.6); // Further scale down font size
+  }
+  .welcomeTextContainer {
+    padding-bottom: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcomeOuter {
+    max-width: 95%;
+    padding: 0 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .welcomeText {
+    font-size: calc($font-hero * 0.45); // Even smaller font size for very small screens
+    margin-bottom: 0.3rem;
+  }
+  .welcomeTextContainer {
+    padding-bottom: 0.5rem;
+  }
+}

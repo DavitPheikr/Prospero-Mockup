@@ -1,0 +1,80 @@
+@use '../abstract' as *;
+
+.cardContainer {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: sans-serif;
+    background-color: $backgrounds-secondary; // Using new background variable
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ───────── Header ───────── */
+  .headerSection {
+    background-color: $backgrounds-primary; // Using new background variable
+    padding: 30px 25px;
+    border-bottom: 1px solid $brand-medium-gray;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $brand-dark-gray; // Using new brand variable
+    margin: 0 0 10px;
+  }
+  
+  .description {
+    font-size: 15px;
+    color: $brand-medium-gray; // Using new brand variable
+    line-height: 1.5;
+    margin: 0 0 15px;
+  }
+  
+  .rateInfo {
+    font-size: 13px;
+    color: $brand-medium-gray; // Using new brand variable
+    margin: 0;
+  }
+  
+  /* ───────── Details ───────── */
+  .detailsSection {
+    padding: 0 25px;
+    background-color: $backgrounds-secondary; // Using new background variable
+  }
+  
+  .detailItem {
+    display: flex;
+    flex-direction: column;
+    padding: 18px 0;
+    border-bottom: 1px solid $brand-medium-gray;
+  }
+  
+  .detailItem:last-child {
+    border-bottom: none;
+  }
+  
+  .detailLabel {
+    font-size: 14px;
+    color: $brand-medium-gray; // Using new brand variable
+    margin-bottom: 4px;
+  }
+  
+  .detailValue {
+    font-size: 16px;
+    font-weight: 600;
+    color: $brand-dark-gray; // Using new brand variable
+  }
+  
+  /* ───────── Footer / Button ───────── */
+  .footerSection {
+    padding: 25px;
+    background-color: $backgrounds-secondary; // Using new background variable
+  }
+  
+  .openDepositButton {
+    width: 100%;
+    cursor: pointer;
+  }
