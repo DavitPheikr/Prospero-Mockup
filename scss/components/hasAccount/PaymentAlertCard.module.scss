@@ -1,0 +1,121 @@
+@use '../../abstract' as *;
+
+
+.paymentAlertCard {
+    background: rgba(83, 146, 204, 0.1);
+    border: 1px solid rgba(83, 146, 204, 0.2);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.875rem;
+    gap: 0.875rem;
+}
+
+.iconSection {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    flex: 1;
+}
+
+.clockIcon {
+    width: 34px;
+    height: 34px;
+    background: rgba(83, 146, 204, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $brand-sky;
+    flex-shrink: 0;
+}
+
+.titleSection {
+    flex: 1;
+}
+
+.title {
+    font-family: $font-roboto;
+    font-size: $font-md;
+    font-weight: $weight-bold;
+    color: $brand-sky;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    flex-shrink: 0;
+}
+
+.dueBadge {
+    background: rgba(83, 146, 204, 0.15);
+    border-radius: 17px;
+    padding: 0.425rem 0.875rem;
+}
+
+.dueText {
+    font-family: $font-roboto;
+    font-size: $font-base;
+    font-weight: $weight-medium;
+    color: $brand-sky;
+}
+
+
+.content {
+    margin-top: 0.875rem;
+}
+
+.paymentInfo {
+    margin-bottom: 0.625rem;
+}
+
+.description {
+    font-family: $font-lato;
+    font-size: $font-base;
+    color: $brand-sky;
+    line-height: 1.5;
+}
+
+.amount {
+    font-family: $font-roboto;
+    font-weight: $weight-bold;
+    color: $brand-sky;
+}
+
+.dueDate {
+    font-family: $font-lato;
+    font-size: $font-base;
+    color: $brand-sky;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.875rem;
+    }
+
+    .rightSection {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .title {
+        font-size: $font-base;
+    }
+
+    .description {
+        font-size: $font-base;
+    }
+}

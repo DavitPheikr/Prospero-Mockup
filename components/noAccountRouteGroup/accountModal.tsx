@@ -1,10 +1,14 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
-import InputField from "@/components/ui/input-field"; // Fix: Import InputField instead of TextInput
-import Dropdown from "@/components/ui/Dropdown"; // Import new Dropdown
-import styles from "@/scss/components/accountModal.module.scss"; // Import styles for the modal
+import InputField from "@/components/ui/input-field";
+import Dropdown from "@/components/ui/Dropdown";
+import styles from "@/scss/components/createAccount/accountModal.module.scss";
+import { Check } from "lucide-react";
+import { createAccount } from "@/data/dynamicAccountData/data";
+import { Wallet, Zap } from "lucide-react";
 
 interface AccountModalProps {
   isOpen: boolean;
@@ -20,10 +24,11 @@ export default function AccountModal({
   const [formData, setFormData] = useState({
     accountName: "",
     principalDeposit: "",
-    currency: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const modalRef = useRef<HTMLDivElement>(null); // ADDED: Ref for the modal content
+  const modalRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({
@@ -33,9 +38,42 @@ export default function AccountModal({
   };
 
   const handleSubmit = () => {
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
-    onClose();
+    // Basic validation
+    if (!formData.accountName.trim()) {
+      alert("Please enter an account name");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Map modal accountType to data layer type
+      const accountTypeForData =
+        accountType === "v2" ? "Voluntary" : "Mandatory";
+
+      // Parse principal deposit (optional)
+      const principalDeposit = formData.principalDeposit
+        ? parseInt(formData.principalDeposit.replace(/\D/g, ""))
+        : undefined;
+
+      // Create the account
+      createAccount(
+        formData.accountName.trim(),
+        accountTypeForData,
+        principalDeposit
+      );
+
+      // Navigate to dynamic dashboard
+      router.push("/my-account/dynamic");
+
+      // Close modal
+      onClose();
+    } catch (error) {
+      console.error("Error creating account:", error);
+      alert("Error creating account. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -45,26 +83,16 @@ export default function AccountModal({
     ? "Voluntary Savings Account"
     : "Mandatory Savings Account";
 
-  const currencyOptions = [
-    { value: "", label: "Select currency" },
-    { value: "USD", label: "USD - US Dollar" },
-    { value: "EUR", label: "EUR - Euro" },
-    { value: "GBP", label: "GBP - British Pound" },
-    { value: "IDR", label: "IDR - Indonesian Rupiah" },
-  ];
-
   const accountFeatures = isVoluntary
     ? {
         title: "Flexible Savings Features",
         subtitle: "Save at your own pace",
         features: [
           {
-            icon: "💰",
             title: "Flexible Deposits",
             description: "Add money whenever you want, no minimum requirements",
           },
           {
-            icon: "📈",
             title: "Competitive Interest",
             description: "Earn attractive interest rates on your savings",
           },
@@ -75,23 +103,19 @@ export default function AccountModal({
         subtitle: "Build disciplined saving habits",
         features: [
           {
-            icon: "📅",
             title: "Monthly Commitment",
             description:
               "Minimum 1 mandatory payment per month builds consistency",
           },
           {
-            icon: "🏆",
             title: "Higher Interest Returns",
             description: "Earn premium interest rates for your commitment",
           },
           {
-            icon: "🎁",
             title: "More SHU Profits",
             description: "Earn more bonuses for consistent payments",
           },
           {
-            icon: "💪",
             title: "Discipline Building",
             description:
               "Develop strong financial habits through regular savings",
@@ -115,9 +139,9 @@ export default function AccountModal({
             <h2 className={styles.title}>{modalTitle}</h2>
             <p className={styles.subtitle}>{accountFeatures.subtitle}</p>
           </div>
-          <div className={styles.stepIndicator}>
-            <span className={styles.stepActive}>1</span>
-            <span className={styles.stepInactive}>2</span>
+          <div className={styles.cardIcon}>
+            {accountType === "v1" && <Wallet />}
+            {accountType === "v2" && <Zap />}
           </div>
         </div>
 
@@ -125,7 +149,6 @@ export default function AccountModal({
           <div className={styles.formSection}>
             {!isVoluntary && (
               <div className={styles.mandatoryNotice}>
-                <div className={styles.noticeIcon}>⚠️</div>
                 <div>
                   <p>
                     <strong>Important:</strong> Monthly minimum 1 mandatory
@@ -159,29 +182,19 @@ export default function AccountModal({
                 isHighlighted
               />
             </div>
-
-            <div className={styles.formGroup}>
-              <label className={styles.label}>
-                Pick Currency <span className={styles.required}>*</span>
-              </label>
-              <Dropdown
-                value={formData.currency}
-                onChange={(value) => handleInputChange("currency", value)}
-                options={currencyOptions}
-              />
-            </div>
           </div>
 
           <div className={styles.infoSection}>
             <div className={styles.infoHeader}>
               <h3 className={styles.infoTitle}>{accountFeatures.title}</h3>
-              <div className={styles.decorativeIcon}>✨</div>
             </div>
 
             <div className={styles.featuresGrid}>
               {accountFeatures.features.map((feature, index) => (
                 <div key={index} className={styles.featureCard}>
-                  <div className={styles.featureIcon}>{feature.icon}</div>
+                  <div className={styles.featureIcon}>
+                    <Check />
+                  </div>
                   <div className={styles.featureContent}>
                     <h4 className={styles.featureTitle}>{feature.title}</h4>
                     <p className={styles.featureDescription}>
@@ -195,8 +208,12 @@ export default function AccountModal({
         </div>
 
         <div className={styles.footer}>
-          <Button onClick={handleSubmit} className={styles.createButton}>
-            CREATE ACCOUNT
+          <Button
+            onClick={handleSubmit}
+            className={styles.createButton}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "CREATING..." : "CREATE ACCOUNT"}
           </Button>
         </div>
       </div>

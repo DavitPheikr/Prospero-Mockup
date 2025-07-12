@@ -1,0 +1,199 @@
+@use '../../abstract/' as *;
+
+.pageContainer {
+  min-height: calc(100vh - 4rem);
+  background: linear-gradient(135deg, $ui-background-light, $ui-background-lighter);
+  padding: 2rem 0;
+}
+
+.welcomeSection {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 0 2rem;
+}
+
+.welcomeTitle {
+  font-family: $font-roboto;
+  font-size: $font-3xl;
+  font-weight: $weight-bold;
+  color: $brand-primary;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, $brand-primary, $brand-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcomeSubtitle {
+  font-family: $font-lato;
+  font-size: $font-lg;
+  color: $brand-sky;
+  margin: 0;
+  font-weight: $weight-medium;
+}
+
+.mainContentWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  margin-top: 3rem;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.leftColumnWrapper {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 2.5rem;
+  background: $backgrounds-secondary;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid $ui-border-gray;
+  height: fit-content;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $brand-primary, $brand-secondary, $brand-sky);
+  }
+}
+
+.leftColumn {
+  h2 {
+    margin-bottom: 2rem;
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.why {
+  color: $brand-dark-gray;
+  font-size: $font-2xl;
+  font-family: $font-roboto;
+  font-weight: $weight-bold;
+  margin-bottom: 1rem;
+}
+
+.bulletPoint {
+  color: $brand-dark-gray;
+  font-size: $font-base-lg;
+  font-family: $font-lato;
+  font-weight: $weight-medium;
+  position: relative;
+  padding: 1.25rem;
+  line-height: 1.5;
+  background: linear-gradient(135deg, rgba(83, 146, 204, 0.03), rgba(83, 146, 204, 0.01));
+  border-radius: 16px;
+  border: 1px solid rgba(83, 146, 204, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(83, 146, 204, 0.15);
+    background: linear-gradient(135deg, rgba(83, 146, 204, 0.06), rgba(83, 146, 204, 0.02));
+  }
+}
+
+.checkIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $brand-sky, lighten($brand-sky, 5%));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  box-shadow: 0 2px 6px rgba(83, 146, 204, 0.3);
+}
+
+.cardsSection {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .mainContentWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .leftColumnWrapper {
+    min-width: unset;
+    max-width: 100%;
+    padding: 2rem;
+  }
+
+  .cardsSection {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .welcomeTitle {
+    font-size: $font-2xl;
+  }
+
+  .welcomeSubtitle {
+    font-size: $font-md;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 1rem 0;
+  }
+
+  .welcomeSection {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  .mainContentWrapper {
+    padding: 0 15px;
+    margin-top: 1rem;
+    gap: 2rem;
+  }
+
+  .leftColumnWrapper {
+    padding: 1.5rem;
+  }
+
+  .why {
+    font-size: $font-xl;
+    text-align: center;
+  }
+
+  .bulletPoint {
+    font-size: $font-base;
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .checkIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
