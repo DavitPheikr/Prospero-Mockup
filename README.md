@@ -1,5 +1,3 @@
-run npm install and npm run dev
-
 navigation
 http://localhost:3000/
 
