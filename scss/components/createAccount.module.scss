@@ -35,14 +35,14 @@
 .why {
   color: $brand-dark-gray;
   font-size: $font-3xl;
-  font-family: $font-lato;
+  font-family: $font-primary;
   font-weight: $weight-bold;
 }
 
 .bulletPoint {
   color: $brand-dark-gray; // Using brand-dark-gray for better readability
   font-size: $font-lg;
-  font-family: $font-lato;
+  font-family: $font-primary;
   font-weight: $weight-medium;
   position: relative;
   padding-left: 1.8rem; // Space for the custom bullet point

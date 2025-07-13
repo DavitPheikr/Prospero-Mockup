@@ -1,13 +1,13 @@
 @use '../../abstract' as *; 
 
 .formGroup {
-  margin-bottom: 2rem;
+  margin-bottom: 0 !important;
   box-sizing: border-box;
 }
 
 .label {
   display: block;
-  font-family: $font-lato;
+  font-family: $font-primary;
   font-size: $font-base;
   font-weight: $weight-bold;
   color: $brand-dark-gray;
@@ -40,7 +40,7 @@
 
 .helperText {
   margin: 0.75rem 0 0 0;
-  font-family: $font-lato;
+  font-family: $font-primary;
   font-size: $font-xs;
   color: $brand-primary;
   display: flex;

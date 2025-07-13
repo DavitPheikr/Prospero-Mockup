@@ -1,6 +1,6 @@
 "use client";
 import Dropdown from "@/components/ui/Dropdown"; // Import the new atomic Dropdown
-import styles from "./form-elements.module.scss"; // Keep shared form group styles
+import styles from "@/scss/components/ui/form-element.module.scss"; // Keep shared form group styles
 
 interface SelectOption {
   value: string;

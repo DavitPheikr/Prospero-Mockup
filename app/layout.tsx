@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Roboto, Lato } from "next/font/google";
+import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Prospero Mockup",
@@ -10,17 +10,10 @@ export const metadata: Metadata = {
 // app/layout.tsx (if using App Router)
 // or pages/_app.tsx (if using Pages Router)
 
-const roboto = Roboto({
-  weight: ["400", "500", "700"],
+const inter = Inter({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-roboto",
-  display: "swap",
-});
-
-const lato = Lato({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-lato",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -30,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${roboto.variable} ${lato.variable}`}>
+    <html lang="en" className={`${inter.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );
@@ -38,5 +31,5 @@ export default function RootLayout({
 
 // to reference fonts in scss example
 //body {
-//  font-family: var(--font-roboto), var(--font-lato), sans-serif;
+//  font-family: var(--font-inter), sans-serif;
 //}

@@ -1,0 +1,33 @@
+@use '../../abstract' as *;
+
+.footer {
+  background-color: #f5f6fa;
+  border-top: 1px solid #e5e7eb;
+  padding: 1.5rem 2rem;
+  margin-top: auto;
+  font-family: $font-primary;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  
+  span {
+    &:first-child {
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+} 

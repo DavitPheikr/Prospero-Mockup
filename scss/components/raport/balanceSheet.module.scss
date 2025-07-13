@@ -1,0 +1,293 @@
+@use '../../abstract' as *;
+
+// Page Wrapper
+.pageWrapper {
+  background-color: #f5f6fa;
+  min-height: 100vh;
+  font-family: $font-primary;
+}
+
+// Main Container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  min-height: calc(100vh - 120px);
+}
+
+// Page Header
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  
+  h1 {
+    color: #495057;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.headerActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.exportButton {
+  background: linear-gradient(135deg, #5084d4 0%, #4a7bc8 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-family: $font-primary;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(80, 132, 212, 0.3);
+  }
+}
+
+// Summary Cards
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summaryCard {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #dee2e6;
+  
+  h3 {
+    font-family: $font-primary;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #495057;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  p {
+    font-family: $font-primary;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+  }
+}
+
+// Section title styling
+.sectionTitle {
+  color: #495057;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem 0;
+}
+
+// Balance Sheet Table
+.tableContainer {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.balanceTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  
+  th {
+    background: linear-gradient(135deg, #5084d4 0%, #4a7bc8 100%);
+    color: white;
+    padding: 1rem 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-bottom: 2px solid #4a7bc8;
+  }
+  
+  td {
+    padding: 1rem 0.75rem;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 0.9rem;
+    vertical-align: middle;
+  }
+  
+  tbody tr {
+    &:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    &:hover {
+      background-color: #e3f2fd;
+    }
+  }
+  
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+// Account styling
+.accountName {
+  font-weight: 600;
+  color: #495057;
+}
+
+.accountCode {
+  color: #6c757d;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.accountType {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+// Balance amount styling
+.balanceAmount {
+  font-weight: 600;
+  text-align: right;
+  color: #495057;
+  font-family: monospace;
+}
+
+// Section header styling
+.sectionHeader {
+  background-color: #e3f2fd !important;
+  
+  td {
+    font-weight: 700;
+    color: #5084d4;
+    font-size: 1rem;
+    padding: 1.5rem 0.75rem !important;
+    text-align: center;
+  }
+  
+  &:hover {
+    background-color: #e3f2fd !important;
+  }
+}
+
+.subSectionHeader {
+  background-color: #f8f9fa !important;
+  
+  td {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.95rem;
+    padding: 1.25rem 0.75rem !important;
+    text-align: left;
+    padding-left: 1.5rem !important;
+  }
+  
+  &:hover {
+    background-color: #f8f9fa !important;
+  }
+}
+
+// Subtotal and total styling
+.subtotal {
+  background-color: #f1f3f4 !important;
+  border-top: 1px solid #dee2e6;
+  
+  td {
+    font-weight: 600;
+    color: #495057;
+    padding-left: 2rem !important;
+  }
+  
+  &:hover {
+    background-color: #f1f3f4 !important;
+  }
+}
+
+.total {
+  background-color: #e3f2fd !important;
+  border-top: 2px solid #5084d4;
+  border-bottom: 2px solid #5084d4;
+  
+  td {
+    font-weight: 700;
+    color: #5084d4;
+    font-size: 1rem;
+    padding: 1.5rem 0.75rem !important;
+  }
+  
+  &:hover {
+    background-color: #e3f2fd !important;
+  }
+}
+
+// Summary card colors
+.totalAssets {
+  color: #5084d4;
+}
+
+.totalLiabilities {
+  color: #dc3545;
+}
+
+.totalEquity {
+  color: #28a745;
+}
+
+.netWorth {
+  color: #495057;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .pageHeader {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .balanceTable {
+    font-size: 0.8rem;
+    
+    th, td {
+      padding: 0.5rem 0.3rem !important;
+    }
+  }
+  
+  .sectionHeader td {
+    padding: 1rem 0.3rem !important;
+    font-size: 0.9rem;
+  }
+  
+  .subSectionHeader td {
+    padding: 0.75rem 0.3rem !important;
+    padding-left: 1rem !important;
+    font-size: 0.85rem;
+  }
+  
+  .subtotal td {
+    padding-left: 1.5rem !important;
+  }
+  
+  .total td {
+    padding: 1rem 0.3rem !important;
+    font-size: 0.9rem;
+  }
+} 

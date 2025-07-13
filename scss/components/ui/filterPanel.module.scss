@@ -1,0 +1,82 @@
+@use '../../abstract' as *;
+
+// Filters Section
+.filters {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e9ecef;
+}
+
+.filterRow {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  // Ensure filter items stay on same line
+  > * {
+    flex-shrink: 0;
+  }
+  
+  // Make select field more compact
+  :global(.formGroup) {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+.dateGroup {
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+  margin-bottom: 0;
+  
+  label {
+    display: block;
+    font-family: $font-primary;
+    font-size: $font-base;
+    font-weight: $weight-bold;
+    color: $brand-dark-gray;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.dateInput {
+  width: 100%;
+  padding: 1.25rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-family: $font-primary;
+  font-size: $font-base-lg;
+  color: $brand-dark-gray;
+  background-color: $backgrounds-secondary;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  
+  &:focus {
+    outline: none;
+    border-color: $brand-primary;
+    box-shadow: 0 0 0 4px rgba(9, 75, 156, 0.1);
+  }
+}
+
+.clearButton {
+  background-color: #6c757d !important;
+  margin-bottom: 0 !important;
+  align-self: center;
+  height: fit-content;
+  margin-top: 24px !important;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #5a6268 !important;
+  }
+} 
