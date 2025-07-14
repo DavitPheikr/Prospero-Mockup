@@ -1,14 +1,6 @@
 navigation
 http://localhost:3000/
 
-mandatory account dashboard
-http://localhost:3000/account/mandatory/dashboard
+landing
+http://localhost:3000/account/
 
-voluntary account dashboard
-http://localhost:3000/account/voluntary/dashboard
-
-create account page
-http://localhost:3000/create-account
-
-created account loads at
-http://localhost:3000/account/dynamic/dashboard and is either mandatory or voluntary based on how it was created
