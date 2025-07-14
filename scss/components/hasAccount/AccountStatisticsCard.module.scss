@@ -33,7 +33,7 @@
 }
 
 .title {
-  font-family: $font-roboto;
+  font-family: $font-primary;
   font-size: $font-md;
   font-weight: $weight-bold;
   color: $brand-dark-gray;
@@ -52,14 +52,14 @@
 }
 
 .periodLabel {
-  font-family: $font-lato;
+  font-family: $font-secondary;
   font-size: $font-xs;
   color: $brand-medium-gray;
   font-weight: $weight-medium;
 }
 
 .periodOption {
-  font-family: $font-lato;
+  font-family: $font-secondary;
   font-size: $font-xs;
   color: $brand-medium-gray;
   cursor: pointer;
@@ -109,14 +109,14 @@
 }
 
 .mainStatLabel {
-  font-family: $font-lato;
+  font-family: $font-secondary;
   font-size: $font-base;
   font-weight: $weight-medium;
   color: $brand-dark-gray;
 }
 
 .mainStatValue {
-  font-family: $font-roboto;
+  font-family: $font-primary;
   font-size: $font-xl;
   font-weight: $weight-bold;
   color: $brand-primary;
@@ -155,7 +155,7 @@
 }
 
 .breakdownLabel {
-  font-family: $font-lato;
+  font-family: $font-secondary;
   font-size: $font-xs;
   font-weight: $weight-medium;
   color: $brand-dark-gray;
@@ -163,7 +163,7 @@
 }
 
 .breakdownValue {
-  font-family: $font-roboto;
+  font-family: $font-primary;
   font-size: $font-base;
   font-weight: $weight-bold;
   color: $brand-sky;

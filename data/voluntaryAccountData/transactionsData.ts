@@ -2,147 +2,92 @@ export interface Transaction {
   refId: string;
   transactionDate: string;
   from: string;
-  type: 'Monthly Deposit' | 'Monthly Interest' | 'Voluntary Deposit' | 'SHU Profit' | 'Savings';
+  type: 'Voluntary Deposit' | 'Monthly Interest' | 'SHU Profit' | 'Withdrawal';
   amount: number;
-  category: 'deposits' | 'interest' | 'shu';
+  category: 'deposits' | 'interest' | 'shu' | 'withdrawals';
 }
 
 export const voluntaryTransactionsData: Transaction[] = [
-    {
-      refId: '456789356',
-      transactionDate: 'Sep 9, 2024, 04:30pm',
-      from: 'Davit Pheikrishvili',
-      type: 'Monthly Deposit',
-      amount: 5670.00,
-      category: 'deposits'
-    },
-    {
-      refId: '456789356',
-      transactionDate: 'Sep 8, 2024, 03:13pm',
-      from: 'Cooperative',
-      type: 'Monthly Interest',
-      amount: 15000.00,
-      category: 'interest'
-    },
-    {
-      refId: '456789356',
-      transactionDate: 'Sep 7, 2024, 1:00pm',
-      from: 'Davit Pheikrishvili',
-      type: 'Voluntary Deposit',
-      amount: 12.50,
-      category: 'deposits'
-    },
-    {
-      refId: '456789356',
-      transactionDate: 'Sep 6, 2024, 07:00am',
-      from: 'Cooperative',
-      type: 'SHU Profit',
-      amount: 30000.00,
-      category: 'shu'
-    },
-    {
-      refId: '456789356',
-      transactionDate: 'Sep 8, 2024, 03:13pm',
-      from: 'Davit Pheikrishvili',
-      type: 'Savings',
-      amount: 8000.00,
-      category: 'deposits'
-    },
-    {
-      refId: '456789357',
-      transactionDate: 'Aug 15, 2024, 10:30am',
-      from: 'Cooperative',
-      type: 'Monthly Interest',
-      amount: 14500.00,
-      category: 'interest'
-    },
-    {
-      refId: '456789358',
-      transactionDate: 'Aug 10, 2024, 02:15pm',
-      from: 'Davit Pheikrishvili',
-      type: 'Monthly Deposit',
-      amount: 5670.00,
-      category: 'deposits'
-    },
-    {
-      refId: '456789359',
-      transactionDate: 'Aug 5, 2024, 09:45am',
-      from: 'Cooperative',
-      type: 'SHU Profit',
-      amount: 25000.00,
-      category: 'shu'
-    },
-    {
-      refId: '456789360',
-      transactionDate: 'Jul 28, 2024, 05:30pm',
-      from: 'Davit Pheikrishvili',
-      type: 'Voluntary Deposit',
-      amount: 100.00,
-      category: 'deposits'
-    },
-    {
-      refId: '456789361',
-      transactionDate: 'Jul 25, 2024, 11:10am',
-      from: 'Cooperative',
-      type: 'Monthly Interest',
-      amount: 14000.00,
-      category: 'interest'
-    },
-    {
-      refId: '456789362',
-      transactionDate: 'Jul 18, 2024, 04:05pm',
-      from: 'Davit Pheikrishvili',
-      type: 'Savings',
-      amount: 6500.00,
-      category: 'deposits'
-    },
-    {
-      refId: '456789363',
-      transactionDate: 'Jul 12, 2024, 08:30am',
-      from: 'Cooperative',
-      type: 'SHU Profit',
-      amount: 27000.00,
-      category: 'shu'
-    },
-    {
-      refId: '456789364',
-      transactionDate: 'Jul 9, 2024, 09:00am',
-      from: 'Davit Pheikrishvili',
-      type: 'Monthly Deposit',
-      amount: 5670.00,
-      category: 'deposits'
-    },
-    {
-      refId: '456789365',
-      transactionDate: 'Jun 29, 2024, 03:45pm',
-      from: 'Davit Pheikrishvili',
-      type: 'Voluntary Deposit',
-      amount: 20.00,
-      category: 'deposits'
-    },
-    {
-      refId: '456789366',
-      transactionDate: 'Jun 26, 2024, 10:00am',
-      from: 'Cooperative',
-      type: 'Monthly Interest',
-      amount: 15500.00,
-      category: 'interest'
-    },
-    {
-      refId: '456789367',
-      transactionDate: 'Jun 22, 2024, 06:45pm',
-      from: 'Davit Pheikrishvili',
-      type: 'Savings',
-      amount: 7100.00,
-      category: 'deposits'
-    },
-    {
-      refId: '456789368',
-      transactionDate: 'Jun 19, 2024, 07:30am',
-      from: 'Cooperative',
-      type: 'SHU Profit',
-      amount: 29500.00,
-      category: 'shu'
-    }
-  
+  // Most recent transactions first
+  {
+    refId: 'VOL456789356',
+    transactionDate: 'Jan 12, 2025, 04:30pm',
+    from: 'Davit Pheikrishvili',
+    type: 'Voluntary Deposit',
+    amount: 8000000.00,
+    category: 'deposits'
+  },
+  {
+    refId: 'VOL456789357',
+    transactionDate: 'Jan 1, 2025, 02:00pm',
+    from: 'Cooperative',
+    type: 'Monthly Interest',
+    amount: 380000.00,
+    category: 'interest'
+  },
+  {
+    refId: 'VOL456789358',
+    transactionDate: 'Dec 30, 2024, 1:00pm',
+    from: 'Davit Pheikrishvili',
+    type: 'Voluntary Deposit',
+    amount: 2000000.00,
+    category: 'deposits'
+  },
+  {
+    refId: 'VOL456789359',
+    transactionDate: 'Dec 25, 2024, 07:00am',
+    from: 'Cooperative',
+    type: 'SHU Profit',
+    amount: 2200000.00,
+    category: 'shu'
+  },
+  {
+    refId: 'VOL456789360',
+    transactionDate: 'Dec 15, 2024, 03:13pm',
+    from: 'Davit Pheikrishvili',
+    type: 'Voluntary Deposit',
+    amount: 5500000.00,
+    category: 'deposits'
+  },
+  {
+    refId: 'VOL456789361',
+    transactionDate: 'Dec 1, 2024, 02:00pm',
+    from: 'Cooperative',
+    type: 'Monthly Interest',
+    amount: 350000.00,
+    category: 'interest'
+  },
+  {
+    refId: 'VOL456789362',
+    transactionDate: 'Nov 20, 2024, 10:30am',
+    from: 'Davit Pheikrishvili',
+    type: 'Withdrawal',
+    amount: -1500000.00,
+    category: 'withdrawals'
+  },
+  {
+    refId: 'VOL456789363',
+    transactionDate: 'Nov 10, 2024, 02:15pm',
+    from: 'Davit Pheikrishvili',
+    type: 'Voluntary Deposit',
+    amount: 3200000.00,
+    category: 'deposits'
+  },
+  {
+    refId: 'VOL456789364',
+    transactionDate: 'Jun 25, 2024, 10:00am',
+    from: 'Cooperative',
+    type: 'SHU Profit',
+    amount: 1800000.00,
+    category: 'shu'
+  },
+  // First transaction
+  {
+    refId: 'VOL456789365',
+    transactionDate: 'Aug 15, 2024, 09:00am',
+    from: 'Davit Pheikrishvili',
+    type: 'Voluntary Deposit',
+    amount: 5000000.00,
+    category: 'deposits'
+  }
 ];

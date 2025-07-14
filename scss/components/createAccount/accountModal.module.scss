@@ -130,7 +130,7 @@
     gap: 3rem;
     padding: 0;
     flex-grow: 1;
-    overflow: hidden; // Prevent this grid container from scrolling
+    overflow: hidden;
   }
   
   .formSection {
@@ -270,25 +270,30 @@
     flex: 1;  
   }
   
-  .cardIcon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 1rem;
-    background: linear-gradient(135deg, $brand-sky, $brand-secondary);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
   
-    svg {
-      color: white;
-    }
-  
-    .depositCard:hover & {
-      transform: scale(1.05);
-    }
+.cardIcon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, $brand-sky, $brand-secondary);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(83, 146, 204, 0.2);
+
+  svg {
+    color: white;
+    width: 28px;
+    height: 28px;
   }
+
+  .simpleCard:hover & {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(83, 146, 204, 0.3);
+  }
+}
   .featureTitle {
     font-family: $font-primary;
     font-size: $font-base;

@@ -30,12 +30,16 @@ export default function Home() {
           <Button>Create New Account</Button>
         </Link>
 
-        <Link href="/my-account/mandatory/dashboard">
+        <Link href="/account/mandatory/dashboard">
           <Button>My Mandatory Account</Button>
         </Link>
 
-        <Link href="/my-account/voluntary/dashboard">
+        <Link href="/account/voluntary/dashboard">
           <Button>My Voluntary Account</Button>
+        </Link>
+
+        <Link href="/account/principal/dashboard">
+          <Button>My Principal Account</Button>
         </Link>
       </div>
     </div>

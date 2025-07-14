@@ -13,39 +13,87 @@ type NavItem = {
 export default function Navbar() {
   const pathname = usePathname();
 
-  // Extract account type from pathname (voluntary, mandatory, dynamic)
-  const accountTypeMatch = pathname.match(/\/my-account\/([^\/]+)/);
-  const accountType = accountTypeMatch ? accountTypeMatch[1] : "voluntary";
-
   const navItems: NavItem[] =
     pathname === "/create-account"
       ? [{ label: "Account", href: "/create-account" }]
-      : pathname.startsWith("/my-account")
+      : pathname.startsWith("/account/voluntary-data")
       ? [
-          { label: "Dashboard", href: `/my-account/${accountType}/dashboard` },
-          { label: "Statistics", href: "/my-account/statistics" },
+          { label: "Dashboard", href: "/account/voluntary-data/dashboard" },
+          { label: "Statistics", href: "/account/statistics" },
           {
             label: "Transactions",
-            href: `/my-account/${accountType}/transactions`,
+            href: "/account/voluntary-data/transactions",
+          },
+        ]
+      : pathname.startsWith("/voluntary-data")
+      ? [
+          { label: "Dashboard", href: "/voluntary-data/dashboard" },
+          { label: "Statistics", href: "/account/statistics" },
+          { label: "Transactions", href: "/voluntary-data/transactions" },
+        ]
+      : pathname.startsWith("/account/voluntary")
+      ? [
+          { label: "Dashboard", href: "/account/voluntary/dashboard" },
+          { label: "Statistics", href: "/account/statistics" },
+          { label: "Transactions", href: "/account/voluntary/transactions" },
+        ]
+      : pathname.startsWith("/voluntary")
+      ? [
+          { label: "Dashboard", href: "/voluntary/dashboard" },
+          { label: "Statistics", href: "/account/statistics" },
+          { label: "Transactions", href: "/voluntary/transactions" },
+        ]
+      : pathname.startsWith("/account/mandatory")
+      ? [
+          { label: "Dashboard", href: "/account/mandatory/dashboard" },
+          { label: "Statistics", href: "/account/statistics" },
+          { label: "Transactions", href: "/account/mandatory/transactions" },
+        ]
+      : pathname.startsWith("/account/principal")
+      ? [
+          { label: "Dashboard", href: "/account/principal/dashboard" },
+          { label: "Statistics", href: "/account/statistics" },
+          { label: "Transactions", href: "/account/principal/transactions" },
+        ]
+      : pathname.startsWith("/account")
+      ? [
+          {
+            label: "Dashboard",
+            href: `/account/${pathname.split("/")[2]}/dashboard`,
+          },
+          { label: "Statistics", href: "/account/statistics" },
+          {
+            label: "Transactions",
+            href: `/account/${pathname.split("/")[2]}/transactions`,
           },
         ]
       : [];
 
-  // Function to check if a nav item should be active based on the last segment
+  // Function to check if a nav item should be active
   const isActive = (href: string, label: string) => {
     const pathSegments = pathname.split("/").filter(Boolean);
     const lastSegment = pathSegments[pathSegments.length - 1];
 
     if (label === "Dashboard") {
-      // Dashboard is active when the last segment is the account type or "dashboard"
-      return lastSegment === accountType || lastSegment === "dashboard";
+      return (
+        lastSegment === "dashboard" ||
+        (pathname.startsWith("/account/mandatory") &&
+          lastSegment === "mandatory") ||
+        (pathname.startsWith("/account/voluntary-data") &&
+          lastSegment === "voluntary-data") ||
+        (pathname.startsWith("/account/voluntary") &&
+          lastSegment === "voluntary") ||
+        (pathname.startsWith("/account/principal") &&
+          lastSegment === "principal") ||
+        (pathname.startsWith("/voluntary-data") &&
+          lastSegment === "voluntary-data") ||
+        (pathname.startsWith("/voluntary") && lastSegment === "voluntary")
+      );
     }
     if (label === "Transactions") {
-      // Transactions is active when the last segment is "transactions"
       return lastSegment === "transactions";
     }
     if (label === "Statistics") {
-      // Statistics is active when the last segment is "statistics"
       return lastSegment === "statistics";
     }
     return pathname === href;

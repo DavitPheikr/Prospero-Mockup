@@ -1,141 +1,117 @@
 @use '../../abstract/' as *;
 
-.depositCard {
+.simpleCard {
   background: $backgrounds-secondary;
-  border-radius: 16px;
-  padding: 2rem;
-  border: 1px solid $ui-border-gray;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  min-height: 380px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid $ui-border-light;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: fit-content;
+  width: 100%;
+  max-width: 480px;
+  margin: auto;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    border-color: $brand-sky;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border-color: rgba(83, 146, 204, 0.3);
   }
 }
 
-.cardHeader {
-  text-align: center;
-  margin-bottom: 1.5rem;
+.cardContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+.iconAndText {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 1;
 }
 
 .cardIcon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1rem;
+  width: 56px;
+  height: 56px;
   background: linear-gradient(135deg, $brand-sky, $brand-secondary);
-  border-radius: 12px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(83, 146, 204, 0.2);
 
   svg {
     color: white;
+    width: 28px;
+    height: 28px;
   }
 
-  .depositCard:hover & {
+  .simpleCard:hover & {
     transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(83, 146, 204, 0.3);
   }
 }
 
-.cardTitle {
-  font-family: $font-roboto;
+.cardText {
+  font-family: $font-inter;
   font-size: $font-lg;
-  font-weight: $weight-bold;
+  font-weight: $weight-semibold;
   color: $brand-dark-gray;
-  margin: 0 0 0.5rem 0;
-}
-
-.cardSubtitle {
-  font-family: $font-lato;
-  font-size: $font-base;
-  color: $brand-medium-gray;
   margin: 0;
-  line-height: 1.4;
-}
-
-.cardBody {
+  line-height: 1.5;
   flex: 1;
-  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
 }
 
-.featuresList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.featureItem {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  background: linear-gradient(135deg, rgba(83, 146, 204, 0.02), rgba(83, 146, 204, 0.01));
-  border-radius: 8px;
-  border: 1px solid $ui-border-light;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: linear-gradient(135deg, rgba(83, 146, 204, 0.05), rgba(83, 146, 204, 0.02));
-    border-color: $brand-sky;
-  }
-}
-
-.cardButton{
-  width: 100%;
-}
-  
-
-.featureText {
-  font-family: $font-lato;
-  font-size: $font-base;
-  color: $brand-dark-gray;
+.cardButton {
+  flex-shrink: 0;
+  width: auto;
+  min-width: fit-content;
   font-weight: $weight-medium;
-  line-height: 1.3;
-  margin: 0;
-}
-
-.cardFooter {
-  margin-top: auto;
-}
-
-.depositButton {
-  width: 100%;
 }
 
 @media (max-width: 768px) {
-  .depositCard {
-    padding: 1.5rem;
-    min-height: 320px;
+  .simpleCard {
+    width: 100%;
+    max-width: none;
+    padding: 2rem;
+    border-radius: 16px;
+  }
+
+  .cardContent {
+    flex-direction: column;
+    gap: 1.75rem;
+    text-align: center;
+  }
+
+  .iconAndText {
+    flex-direction: column;
+    gap: 1.25rem;
   }
 
   .cardIcon {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
+    
+    svg {
+      width: 32px;
+      height: 32px;
+    }
   }
 
-  .cardTitle {
-    font-size: $font-md;
+  .cardText {
+    font-size: $font-base-lg;
+    text-align: center;
   }
 
-  .featureItem {
-    padding: 0.625rem;
-  }
-
-  .featureText {
-    font-size: $font-base;
-  }
-
-  .depositButton {
-    padding: 0.75rem 1.25rem;
+  .cardButton {
+    width: 100%;
+    min-width: auto;
   }
 }

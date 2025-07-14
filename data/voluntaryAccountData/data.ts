@@ -1,11 +1,14 @@
+import { voluntaryTransactionsData } from './transactionsData';
+
+// Static voluntary account data (existing account)
 export const accountData = {
   balance: 25750000.50,
   accountType: "Voluntary",
-  accountNumber: "2891043728",
+  accountNumber: "3413023722",
   accountTypeFull: "Voluntary Savings Account",
   dateOfCreation: "15.08.2024",
-  initialDeposit: "Rp 5.000.000",
 };
+
 
 export const statisticsData = {
   "3 months": {
@@ -40,59 +43,31 @@ export const statisticsData = {
 
 export const periods = ["3 months", "6 months", "1y", "all"];
 
-export const transactionsData = [
-  {
-    id: 1,
-    type: "incoming" as const,
-    category: "deposit" as const,
-    title: "Voluntary Deposit",
-    subtitle: "Manual deposit by user",
-    date: "Jan 12, 2025",
-    amount: 8000000,
-  },
-  {
-    id: 2,
-    type: "incoming" as const,
-    category: "interest" as const,
-    title: "Monthly Interest Profit",
-    subtitle: "Interest earned on account balance",
-    date: "Jan 1, 2025",
-    amount: 380000,
-  },
-  {
-    id: 3,
-    type: "incoming" as const,
-    category: "deposit" as const,
-    title: "Voluntary Deposit",
-    subtitle: "Manual deposit by user",
-    date: "Dec 30, 2024",
-    amount: 2000000,
-  },
-  {
-    id: 4,
-    type: "incoming" as const,
-    category: "shu" as const,
-    title: "SHU Profit Distribution",
-    subtitle: "Quarterly profit sharing (3 months)",
-    date: "Dec 25, 2024",
-    amount: 2200000,
-  },
-  {
-    id: 5,
-    type: "incoming" as const,
-    category: "deposit" as const,
-    title: "Voluntary Deposit",
-    subtitle: "Manual deposit by user",
-    date: "Dec 15, 2024",
-    amount: 5500000,
-  },
-  {
-    id: 6,
-    type: "incoming" as const,
-    category: "interest" as const,
-    title: "Monthly Interest Profit",
-    subtitle: "Interest earned on account balance",
-    date: "Dec 1, 2024",
-    amount: 350000,
-  },
-];
+export const transactionsData = voluntaryTransactionsData.slice(0, 5).map(transaction => ({
+  id: parseInt(transaction.refId.replace(/\D/g, '')),
+  type: "incoming" as const,
+  category: transaction.category === "withdrawals" ? "deposit" : transaction.category as "deposit" | "interest" | "shu",
+  title: transaction.type === "Voluntary Deposit" ? "Voluntary Deposit" :
+         transaction.type === "Withdrawal" ? "Withdrawal" :
+         transaction.type === "Monthly Interest" ? "Monthly Interest Profit" : 
+         "SHU Profit Distribution",
+  subtitle: transaction.type === "Voluntary Deposit" ? "Manual deposit by user" :
+            transaction.type === "Withdrawal" ? "Account withdrawal" :
+            transaction.type === "Monthly Interest" ? "Interest earned on account balance" :
+            "Quarterly profit sharing",
+  date: transaction.transactionDate.split(',')[0],
+  amount: transaction.amount,
+}));
+
+export const createVoluntaryAccount = (
+  name: string, 
+  principalDeposit?: number
+) => {
+  const accountNumber = Math.floor(Math.random() * 9000000000) + 1000000000;
+  const currentDate = new Date().toLocaleDateString("en-GB");
+  
+  accountData.balance = 0;
+  accountData.accountNumber = accountNumber.toString();
+  accountData.dateOfCreation = currentDate;
+  
+};

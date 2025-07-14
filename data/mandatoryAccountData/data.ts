@@ -1,10 +1,11 @@
+import { mandatoryTransactionsData } from './transactionsData';
+
 export const accountData = {
   balance: 138.38,
   accountType: "Mandatory",
   accountNumber: "1748951657",
   accountTypeFull: "Mandatory Savings Account",
-  dateOfCreation: "26.02.2025",
-  initialDeposit: "None",
+  dateOfCreation: "01.09.2024",
 };
 
 export const statisticsData = {
@@ -47,50 +48,16 @@ export const paymentData = {
   isPrincipalPayment: false,
 };
 
-export const transactionsData = [
-  {
-    id: 1,
-    type: "incoming" as const,
-    category: "deposit" as const,
-    title: "Account Deposit",
-    subtitle: "Manual deposit by user",
-    date: "Jan 9, 2025",
-    amount: 5000000,
-  },
-  {
-    id: 2,
-    type: "incoming" as const,
-    category: "interest" as const,
-    title: "Monthly Interest Profit",
-    subtitle: "Interest earned on account balance",
-    date: "Jan 1, 2025",
-    amount: 250000,
-  },
-  {
-    id: 3,
-    type: "incoming" as const,
-    category: "deposit" as const,
-    title: "Account Deposit",
-    subtitle: "Manual deposit by user",
-    date: "Dec 28, 2024",
-    amount: 3000000,
-  },
-  {
-    id: 4,
-    type: "incoming" as const,
-    category: "shu" as const,
-    title: "SHU Profit Distribution",
-    subtitle: "Quarterly profit sharing (3 months)",
-    date: "Dec 25, 2024",
-    amount: 1500000,
-  },
-  {
-    id: 5,
-    type: "incoming" as const,
-    category: "interest" as const,
-    title: "Monthly Interest Profit",
-    subtitle: "Interest earned on account balance",
-    date: "Dec 1, 2024",
-    amount: 230000,
-  },
-];
+export const transactionsData = mandatoryTransactionsData.slice(0, 5).map(transaction => ({
+  id: parseInt(transaction.refId.replace(/\D/g, '')),
+  type: "incoming" as const,
+  category: transaction.category as "deposit" | "interest" | "shu",
+  title: transaction.type === "Mandatory Contribution" ? "Mandatory Contribution" : 
+         transaction.type === "Monthly Interest" ? "Monthly Interest Profit" : 
+         "SHU Profit Distribution",
+  subtitle: transaction.type === "Mandatory Contribution" ? "Monthly mandatory deposit" :
+            transaction.type === "Monthly Interest" ? "Interest earned on account balance" :
+            "Quarterly profit sharing",
+  date: transaction.transactionDate.split(',')[0],
+  amount: transaction.amount,
+}));

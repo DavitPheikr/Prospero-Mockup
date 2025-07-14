@@ -42,7 +42,7 @@
 }
 
 .title {
-    font-family: $font-roboto;
+    font-family: $font-primary;
     font-size: $font-md;
     font-weight: $weight-bold;
     color: $brand-sky;
@@ -64,7 +64,7 @@
 }
 
 .dueText {
-    font-family: $font-roboto;
+    font-family: $font-primary;
     font-size: $font-base;
     font-weight: $weight-medium;
     color: $brand-sky;
@@ -80,20 +80,20 @@
 }
 
 .description {
-    font-family: $font-lato;
+    font-family: $font-secondary;
     font-size: $font-base;
     color: $brand-sky;
     line-height: 1.5;
 }
 
 .amount {
-    font-family: $font-roboto;
+    font-family: $font-primary;
     font-weight: $weight-bold;
     color: $brand-sky;
 }
 
 .dueDate {
-    font-family: $font-lato;
+    font-family: $font-secondary;
     font-size: $font-base;
     color: $brand-sky;
     opacity: 0.8;

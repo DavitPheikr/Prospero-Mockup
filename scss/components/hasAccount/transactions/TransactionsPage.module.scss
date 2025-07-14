@@ -29,7 +29,7 @@
 }
 
 .title {
-  font-family: $font-roboto;
+  font-family: $font-primary;
   font-size: $font-2xl;
   font-weight: $weight-bold;
   color: $brand-dark-gray;
@@ -43,7 +43,7 @@
 }
 
 .dateText {
-  font-family: $font-roboto;
+  font-family: $font-primary;
   font-size: $font-base;
   color: $brand-dark-gray;
 }
@@ -80,7 +80,7 @@
   color: white;
   font-weight: $weight-bold;
   font-size: $font-lg;
-  font-family: $font-roboto;
+  font-family: $font-primary;
 }
 
 .balanceContent {
@@ -90,14 +90,14 @@
 }
 
 .balanceLabel {
-  font-family: $font-roboto;
+  font-family: $font-primary;
   font-size: $font-base;
   color: $brand-medium-gray;
   margin: 0;
 }
 
 .balanceAmount {
-  font-family: $font-roboto;
+  font-family: $font-primary;
   font-size: $font-xl;
   font-weight: $weight-bold;
   color: $brand-dark-gray;

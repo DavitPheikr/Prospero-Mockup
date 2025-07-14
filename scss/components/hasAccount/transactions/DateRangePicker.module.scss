@@ -5,7 +5,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  font-family: $font-roboto;
+  font-family: $font-primary;
 }
 
 .dateRangeButton {
@@ -76,7 +76,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   min-width: 350px;
-  font-family: $font-roboto;
+  font-family: $font-primary;
 }
 
 .dateSection {
@@ -106,7 +106,7 @@
   border: 1px solid $ui-border-gray;
   border-radius: 0.25rem;
   font-size: $font-base;
-  font-family: $font-roboto;
+  font-family: $font-primary;
   color: $brand-dark-gray;
   background: $backgrounds-secondary;
   cursor: pointer;
@@ -156,7 +156,7 @@
   color: $brand-medium-gray;
   border: 1px solid $ui-border-gray;
   border-radius: 8px;
-  font-family: $font-roboto;
+  font-family: $font-primary;
   font-size: $font-base;
   font-weight: $weight-medium;
   cursor: pointer;
@@ -180,7 +180,7 @@
   color: white;
   border: none;
   border-radius: 8px;
-  font-family: $font-roboto;
+  font-family: $font-primary;
   font-size: $font-base;
   font-weight: $weight-medium;
   cursor: pointer;

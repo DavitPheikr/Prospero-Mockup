@@ -5,6 +5,7 @@
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     background: $backgrounds-secondary;
+    
 }
 
 .balanceHeader {
@@ -33,7 +34,7 @@
 }
 
 .mainBalance {
-    font-family: $font-roboto;
+    font-family: $font-primary;
     font-size: $font-3xl;
     font-weight: $weight-bold;
     margin-bottom: 0;
@@ -47,7 +48,7 @@
     border-radius: 12px;
     padding: 0.5rem 1rem;
     backdrop-filter: blur(10px);
-    font-family: $font-roboto;
+    font-family: $font-primary;
     font-size: $font-base;
     font-weight: $weight-bold;
     color: white;
@@ -61,7 +62,7 @@
 }
 
 .sectionTitle {
-    font-family: $font-roboto;
+    font-family: $font-primary;
     font-size: $font-base;
     font-weight: $weight-bold;
     color: $brand-dark-gray;
@@ -91,14 +92,14 @@
 }
 
 .label {
-    font-family: $font-lato;
+    font-family: $font-secondary;
     font-size: $font-base;
     font-weight: $weight-regular;
     color: $brand-dark-gray;
 }
 
 .value {
-    font-family: $font-roboto;
+    font-family: $font-primary;
     font-size: $font-base;
     font-weight: $weight-medium;
     color: $brand-dark-gray;

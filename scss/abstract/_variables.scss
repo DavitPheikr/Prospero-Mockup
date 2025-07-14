@@ -9,6 +9,14 @@ $brand-sky: #5392CC;
 $brand-dark-gray: #455A64;
 $brand-medium-gray: #767676;
 
+// Account Card Colors (base and lightened for gradients)
+$principal-account-color: #094B9C;        // $brand-primary
+$principal-account-color-light: #1a5db0;  // lighten($brand-primary, 10%)
+$voluntary-account-color: #5392CC;         // $brand-sky
+$voluntary-account-color-light: #6ba3d6;  // lighten($brand-sky, 10%)
+$mandatory-account-color: #0369A1;        // $brand-secondary
+$mandatory-account-color-light: #1e7bb5;  // lighten($brand-secondary, 10%)
+
 // UI Colors
 $ui-border-light: #f0f0f0;
 $ui-border-gray: rgba(229, 231, 235, 0.6);
@@ -30,3 +38,21 @@ $account-hover-background: rgba(107, 163, 214, 0.02);
 
 $navbar-gray-light: #1F2937;
 $navbar-gray-dark: #111827;
+
+// Account Color Helper Mixin
+// Usage: @include account-gradient('principal'), @include account-gradient('voluntary'), @include account-gradient('mandatory')
+// ex .accountLeft {
+//     @include account-gradient('voluntary');
+    // Other styles...
+//    }
+@mixin account-gradient($type) {
+  @if $type == 'principal' {
+    background: linear-gradient(135deg, $principal-account-color, $principal-account-color-light);
+  } @else if $type == 'voluntary' {
+    background: linear-gradient(135deg, $voluntary-account-color, $voluntary-account-color-light);
+  } @else if $type == 'mandatory' {
+    background: linear-gradient(135deg, $mandatory-account-color, $mandatory-account-color-light);
+  } @else {
+    @error "Invalid account type '#{$type}'. Valid types are: 'principal', 'voluntary', 'mandatory'";
+  }
+}
