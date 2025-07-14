@@ -14,10 +14,6 @@ export default function Home() {
         padding: "2rem",
       }}
     >
-      <h1 style={{ fontSize: "2rem", marginBottom: "2rem" }}>
-        Prospero Account Management Demo
-      </h1>
-
       <div
         style={{
           display: "flex",
@@ -26,16 +22,16 @@ export default function Home() {
           width: "300px",
         }}
       >
-        <Link href="/create-account">
-          <Button>Create New Account</Button>
+        <Link href="/account">
+          <Button>Landing</Button>
         </Link>
 
         <Link href="/account/mandatory/dashboard">
           <Button>My Mandatory Account</Button>
         </Link>
 
-        <Link href="/account/voluntary/dashboard">
-          <Button>My Voluntary Account</Button>
+        <Link href="/account/voluntary-data/dashboard">
+          <Button>My PreMade Voluntary Account</Button>
         </Link>
 
         <Link href="/account/principal/dashboard">
