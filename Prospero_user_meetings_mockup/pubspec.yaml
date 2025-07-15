@@ -1,0 +1,24 @@
+
+name: cooperative_x
+description: Internal tool for Cooperative X
+version: 0.2.0
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.1.0
+  intl: ^0.20.2
+  pdf: ^3.11.3
+  printing: ^5.14.2
+  table_calendar: ^3.2.0
+  universal_html: ^2.2.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
