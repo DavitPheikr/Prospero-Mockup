@@ -7,6 +7,7 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   className?: string;
+  variant?: "primary" | "secondary";
 }
 
 export default function Button({
@@ -15,13 +16,17 @@ export default function Button({
   type = "button",
   disabled = false,
   className = "",
+  variant = "primary",
 }: ButtonProps) {
+  const buttonClass =
+    variant === "secondary" ? styles.buttonSecondary : styles.button;
+
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${styles.button} ${className}`}
+      className={`${buttonClass} ${className}`}
     >
       {children}
     </button>

@@ -1,6 +1,10 @@
 @import '../../../abstract/variables';
 @import '../../../abstract/fonts';
 
+
+.transactionsPageContainer{
+
+}
 .transactionsPage {
   padding: 2rem;
   max-width: 1200px;
@@ -17,11 +21,7 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   margin-bottom: 2rem;
-  gap: 2rem;
 }
 
 .titleSection {
@@ -123,4 +123,7 @@
     width: 100%;
     justify-content: center;
   }
+}
+.backButton{
+  margin-right: 1rem;
 }

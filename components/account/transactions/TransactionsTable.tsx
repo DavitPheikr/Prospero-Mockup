@@ -47,7 +47,11 @@ export default function TransactionsTable({
         <div className={styles.headerCell}>Amount</div>
       </div>
 
-      <div className={styles.tableBody}>
+      {/* Make the table body scrollable with a fixed max height */}
+      <div
+        className={styles.tableBody}
+        style={{ maxHeight: "350px", overflowY: "auto" }}
+      >
         {transactions.map((transaction, index) => (
           <div
             key={`${transaction.refId}-${index}`}

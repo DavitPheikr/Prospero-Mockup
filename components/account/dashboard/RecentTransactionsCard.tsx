@@ -32,13 +32,15 @@ export default function RecentTransactionsCard({
 
   const handleViewAllTransactions = () => {
     if (type === "mandatory") {
-      router.push("/account/mandatory/transactions");
+      router.push("/transactions?type=mandatory");
     } else if (type === "voluntary") {
-      router.push("/account/voluntary/transactions");
+      router.push("/transactions?type=voluntary");
     } else if (type === "voluntary-data") {
-      router.push("/account/voluntary-data/transactions");
+      router.push("/transactions?type=voluntary-data");
     } else if (type === "principal") {
-      router.push("/account/principal/transactions");
+      router.push("/transactions?type=principal");
+    } else {
+      router.push("/transactions?type=all");
     }
   };
 

@@ -1,11 +1,16 @@
 import styles from "@/scss/components/hasAccount/transactions/TransactionFilters.module.scss";
-
+import Button from "@/components/ui/Button";
 interface TransactionFiltersProps {
   activeFilter: "all" | "deposits" | "interest" | "shu" | "withdrawals";
   onFilterChange: (
     filter: "all" | "deposits" | "interest" | "shu" | "withdrawals"
   ) => void;
-  accountType?: "voluntary" | "mandatory" | "principal" | "voluntary-data";
+  accountType?:
+    | "all"
+    | "voluntary"
+    | "mandatory"
+    | "principal"
+    | "voluntary-data";
 }
 
 export default function TransactionFilters({
@@ -26,20 +31,16 @@ export default function TransactionFilters({
       : baseFilters;
 
   return (
-    <div className={styles.filtersContainer}>
-      <div className={styles.filterTabs}>
-        {filters.map((filter) => (
-          <button
-            key={filter.key}
-            className={`${styles.filterButton} ${
-              activeFilter === filter.key ? styles.active : ""
-            }`}
-            onClick={() => onFilterChange(filter.key)}
-          >
-            {filter.label}
-          </button>
-        ))}
-      </div>
+    <div className={styles.filterSelector}>
+      {filters.map((filter) => (
+        <Button
+          key={filter.key}
+          onClick={() => onFilterChange(filter.key)}
+          variant={activeFilter === filter.key ? "primary" : "secondary"}
+        >
+          {filter.label}
+        </Button>
+      ))}
     </div>
   );
 }

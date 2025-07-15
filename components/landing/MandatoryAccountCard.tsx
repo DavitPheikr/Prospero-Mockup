@@ -15,7 +15,7 @@ export default function MandatoryAccountCard() {
   };
 
   const handleCardClick = () => {
-    router.push("/account/mandatory/dashboard");
+    router.push("/account/mandatory");
   };
 
   return (

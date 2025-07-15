@@ -1,0 +1,13 @@
+@use '../../abstract/' as *;
+
+.accountSelector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.accountButton {
+  text-transform: capitalize;
+  white-space: nowrap;
+}

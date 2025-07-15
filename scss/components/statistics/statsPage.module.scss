@@ -1,0 +1,97 @@
+@use '../../abstract' as *;
+
+
+.pageWrapper{
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #FFF;
+  max-height: calc(100vh - 80px);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+
+}
+.title {
+  font-family: $font-primary;
+  font-size: $font-2xl;
+  font-weight: $weight-bold;
+  color: $brand-dark-gray;
+  margin-left: 1rem;
+
+}
+.accountBalance{
+background: $backgrounds-secondary;
+  border: 1px solid $ui-border-light;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: $font-primary;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  
+  .accountHeader {
+    font-size: $font-lg;
+    font-weight: $weight-medium;
+    color: $brand-primary;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .balanceContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .balanceLeft {
+      flex: 1;
+    }
+
+    .accountBalanceAmount {
+      color: $brand-dark-gray;
+      font-size: $font-3xl;
+      font-weight: $weight-bold;
+      margin: 0;
+    }
+
+    .changeIndicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+      font-size: $font-xs;
+      font-weight: $weight-medium;
+    }
+
+    .changePositive {
+      color: $ui-success;
+      background-color: $ui-success-light;
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+    }
+
+    .changeText {
+      color: $brand-medium-gray;
+      margin-left: 0.5rem;
+    }
+
+    .currencyIcon {
+      color: $brand-primary;
+      font-size: $font-lg;
+    }
+
+
+}
+
+.lowerContainer {
+  padding: 0 2rem;
+}

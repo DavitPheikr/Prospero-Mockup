@@ -30,16 +30,6 @@ export default function TransactionsCard({
       ? principalTransactionsData
       : mandatoryTransactionsData;
 
-  // Create mock account data
-  const mockAccountData = {
-    balance:
-      accountType === "voluntary"
-        ? 125000
-        : accountType === "principal"
-        ? 85000000
-        : 85000,
-  };
-
   // Filter transactions by category
   const filteredTransactions = transactionsData.filter((transaction) => {
     if (activeFilter === "all") return true;
@@ -85,7 +75,7 @@ export default function TransactionsCard({
                   style: "currency",
                   currency: "IDR",
                   minimumFractionDigits: 0,
-                }).format(mockAccountData.balance)}
+                }).format(0)}
               </span>
             </div>
           </div>

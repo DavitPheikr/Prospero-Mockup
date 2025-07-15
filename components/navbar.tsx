@@ -13,90 +13,28 @@ type NavItem = {
 export default function Navbar() {
   const pathname = usePathname();
 
-  const navItems: NavItem[] =
-    pathname === "/create-account"
-      ? [{ label: "Account", href: "/create-account" }]
-      : pathname.startsWith("/account/voluntary-data")
-      ? [
-          { label: "Dashboard", href: "/account/voluntary-data/dashboard" },
-          { label: "Statistics", href: "/account/statistics" },
-          {
-            label: "Transactions",
-            href: "/account/voluntary-data/transactions",
-          },
-        ]
-      : pathname.startsWith("/voluntary-data")
-      ? [
-          { label: "Dashboard", href: "/voluntary-data/dashboard" },
-          { label: "Statistics", href: "/account/statistics" },
-          { label: "Transactions", href: "/voluntary-data/transactions" },
-        ]
-      : pathname.startsWith("/account/voluntary")
-      ? [
-          { label: "Dashboard", href: "/account/voluntary/dashboard" },
-          { label: "Statistics", href: "/account/statistics" },
-          { label: "Transactions", href: "/account/voluntary/transactions" },
-        ]
-      : pathname.startsWith("/voluntary")
-      ? [
-          { label: "Dashboard", href: "/voluntary/dashboard" },
-          { label: "Statistics", href: "/account/statistics" },
-          { label: "Transactions", href: "/voluntary/transactions" },
-        ]
-      : pathname.startsWith("/account/mandatory")
-      ? [
-          { label: "Dashboard", href: "/account/mandatory/dashboard" },
-          { label: "Statistics", href: "/account/statistics" },
-          { label: "Transactions", href: "/account/mandatory/transactions" },
-        ]
-      : pathname.startsWith("/account/principal")
-      ? [
-          { label: "Dashboard", href: "/account/principal/dashboard" },
-          { label: "Statistics", href: "/account/statistics" },
-          { label: "Transactions", href: "/account/principal/transactions" },
-        ]
-      : pathname.startsWith("/account")
-      ? [
-          {
-            label: "Dashboard",
-            href: `/account/${pathname.split("/")[2]}/dashboard`,
-          },
-          { label: "Statistics", href: "/account/statistics" },
-          {
-            label: "Transactions",
-            href: `/account/${pathname.split("/")[2]}/transactions`,
-          },
-        ]
-      : [];
+  // Always show these three nav items
+  const navItems: NavItem[] = [
+    { label: "Account", href: "/account" },
+    { label: "Statistics", href: "/statistics?type=all" },
+    { label: "Transactions", href: "/transactions?type=all" },
+  ];
 
-  // Function to check if a nav item should be active
-  const isActive = (href: string, label: string) => {
-    const pathSegments = pathname.split("/").filter(Boolean);
-    const lastSegment = pathSegments[pathSegments.length - 1];
-
-    if (label === "Dashboard") {
-      return (
-        lastSegment === "dashboard" ||
-        (pathname.startsWith("/account/mandatory") &&
-          lastSegment === "mandatory") ||
-        (pathname.startsWith("/account/voluntary-data") &&
-          lastSegment === "voluntary-data") ||
-        (pathname.startsWith("/account/voluntary") &&
-          lastSegment === "voluntary") ||
-        (pathname.startsWith("/account/principal") &&
-          lastSegment === "principal") ||
-        (pathname.startsWith("/voluntary-data") &&
-          lastSegment === "voluntary-data") ||
-        (pathname.startsWith("/voluntary") && lastSegment === "voluntary")
-      );
-    }
-    if (label === "Transactions") {
-      return lastSegment === "transactions";
+  // Determine which nav item is active
+  const isActive = (label: string) => {
+    if (label === "Account") {
+      // /account or /account/{accountType}
+      return pathname === "/account" || /^\/account\/[^/]+$/.test(pathname);
     }
     if (label === "Statistics") {
-      return lastSegment === "statistics";
+      // Any /statistics page
+      return pathname.startsWith("/statistics");
     }
-    return pathname === href;
+    if (label === "Transactions") {
+      // Any /transactions page
+      return pathname.startsWith("/transactions");
+    }
+    return false;
   };
 
   return (
@@ -106,11 +44,11 @@ export default function Navbar() {
           <img src="/logo.png" alt="Logo" className={styles.logo} />
           <div className={styles.centerSection}>
             {navItems.map(({ label, href }) => (
-              <Link key={href} href={href}>
+              <Link key={label} href={href}>
                 <button
                   className={clsx(
                     styles.navButton,
-                    isActive(href, label) && styles.active
+                    isActive(label) && styles.active
                   )}
                 >
                   {label}
@@ -118,6 +56,11 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
+        </div>
+        <div className={styles.rightSection}>
+          <Link href="/account/voluntary-data">
+            <button className={styles.navButton}>Voluntary Data</button>
+          </Link>
         </div>
       </div>
     </nav>

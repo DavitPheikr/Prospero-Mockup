@@ -14,7 +14,7 @@ export const principalTransactionsData: Transaction[] = [
     transactionDate: 'Jan 15, 2025, 02:00pm',
     from: 'Cooperative',
     type: 'Monthly Interest',
-    amount: 4200000.00,
+    amount: 145.00,
     category: 'interest'
   },
   {
@@ -22,7 +22,7 @@ export const principalTransactionsData: Transaction[] = [
     transactionDate: 'Dec 15, 2024, 02:00pm',
     from: 'Cooperative',
     type: 'Monthly Interest',
-    amount: 4150000.00,
+    amount: 145.00,
     category: 'interest'
   },
   {
@@ -30,7 +30,7 @@ export const principalTransactionsData: Transaction[] = [
     transactionDate: 'Dec 1, 2024, 10:00am',
     from: 'Cooperative',
     type: 'SHU Profit',
-    amount: 12500000.00,
+    amount: 250.00,
     category: 'shu'
   },
   {
@@ -38,7 +38,7 @@ export const principalTransactionsData: Transaction[] = [
     transactionDate: 'Nov 15, 2024, 02:00pm',
     from: 'Cooperative',
     type: 'Monthly Interest',
-    amount: 4100000.00,
+    amount: 145.00,
     category: 'interest'
   },
   {
@@ -46,7 +46,7 @@ export const principalTransactionsData: Transaction[] = [
     transactionDate: 'Oct 15, 2024, 02:00pm',
     from: 'Cooperative',
     type: 'Monthly Interest',
-    amount: 4050000.00,
+    amount: 145.00,
     category: 'interest'
   },
   {
@@ -54,7 +54,7 @@ export const principalTransactionsData: Transaction[] = [
     transactionDate: 'Sep 15, 2024, 02:00pm',
     from: 'Cooperative',
     type: 'Monthly Interest',
-    amount: 4000000.00,
+    amount: 145.00,
     category: 'interest'
   },
   {
@@ -62,7 +62,7 @@ export const principalTransactionsData: Transaction[] = [
     transactionDate: 'Aug 15, 2024, 02:00pm',
     from: 'Cooperative',
     type: 'Monthly Interest',
-    amount: 3950000.00,
+    amount: 145.00,
     category: 'interest'
   },
   {
@@ -70,7 +70,7 @@ export const principalTransactionsData: Transaction[] = [
     transactionDate: 'Jun 1, 2024, 10:00am',
     from: 'Cooperative',
     type: 'SHU Profit',
-    amount: 11000000.00,
+    amount: 320.00,
     category: 'shu'
   },
   // Initial deposit - oldest transaction
@@ -79,7 +79,7 @@ export const principalTransactionsData: Transaction[] = [
     transactionDate: 'Aug 1, 2024, 09:00am',
     from: 'Principal Account Holder',
     type: 'Initial Principal Deposit',
-    amount: 50000000.00,
+    amount: 700.00,
     category: 'deposits'
   }
 ];

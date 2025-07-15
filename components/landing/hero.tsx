@@ -8,6 +8,7 @@ import PrincipalAccountCard from "@/components/landing/PrincipalAccountCard";
 import VoluntaryAccountCard from "@/components/landing/VoluntaryAccountCard";
 import PaymentAlertCard from "@/components/account/dashboard/PaymentAlertCard";
 import RecentTransactionsCard from "../account/dashboard/RecentTransactionsCard";
+import AccountStatisticsCard from "../account/dashboard/AccountStatisticsCard";
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasVoluntaryAccount, setHasVoluntaryAccount] = useState(false);
@@ -32,7 +33,7 @@ export default function Hero() {
           <div className={styles.pageContainer}>
             <div className={styles.sumSection}>
               <h3 className={styles.sumLabel}>SUM AMOUNT</h3>
-              <h1 className={styles.sumAmount}>Rp 85.003.098,68</h1>
+              <h1 className={styles.sumAmount}>Rp 5,158.88</h1>
             </div>
 
             <div className={styles.accountsGrid}>
@@ -49,8 +50,9 @@ export default function Hero() {
         <div className={styles.rightColumn}>
           <PaymentAlertCard type="mandatory" />
           <div className={styles.rightContainer}>
+            <AccountStatisticsCard type="all" href="/statistics?type=all" />
+
             <RecentTransactionsCard type={"all"} />
-            <div>Statistics</div>
           </div>
         </div>
       </div>

@@ -1,0 +1,81 @@
+@use '../../abstract' as *; 
+
+.statsContainer {
+  background: $backgrounds-secondary;
+  border: 1px solid $ui-border-light;
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+  .statsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+    .statsTitle {
+      font-family: $font-primary;
+      font-size: $font-xs;
+      font-weight: $weight-medium;
+      color: $brand-medium-gray;
+      margin: 0;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    
+    .statsTrendIcon {
+      color: $ui-success;
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  .statsAmount {
+    font-family: $font-primary;
+    font-size: $font-2xl;
+    font-weight: $weight-bold;
+    color: $ui-success;
+    margin-bottom: 12px;
+    line-height: 1.2;
+
+    // For zero/neutral
+    &[style*="--brand-dark-gray"] {
+      color: $brand-dark-gray !important;
+    }
+  }
+  
+  .statsFooter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    .statsPercentage {
+      font-family: $font-primary;
+      font-size: $font-xs;
+      font-weight: $weight-medium;
+      padding: 4px 8px;
+      border-radius: 6px;
+      
+      &.positive {
+        background-color: $ui-success-light;
+        color: $ui-success;
+      }
+      
+      &.negative {
+        background-color: $ui-error-light;
+        color: $ui-error;
+      }
+      &.none {
+        background: none;
+        color: $brand-dark-gray;
+      }
+    }
+    
+    .statsDescription {
+      font-family: $font-primary;
+      font-size: $font-xs;
+      color: $brand-medium-gray;
+      font-weight: $weight-regular;
+    }
+  }
+}

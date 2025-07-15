@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+
 import styles from "@/scss/components/hasAccount/transactions/TransactionsPage.module.scss";
 import TransactionsTable from "./TransactionsTable";
 import TransactionFilters from "./TransactionFilters";
@@ -9,18 +11,44 @@ import { voluntaryTransactionsData } from "@/data/voluntaryAccountData/transacti
 import { mandatoryTransactionsData } from "@/data/mandatoryAccountData/transactionsData";
 import { principalTransactionsData } from "@/data/principalAccountData/transactionsData";
 import { newVoluntaryTransactionsData } from "@/data/newVoluntaryAccountData/transactionsData";
-interface TransactionsPageProps {
-  accountType: "voluntary" | "mandatory" | "principal" | "voluntary-data";
-}
+import { allTransactionsData } from "@/data/allData/transactionsData";
+import BackTo from "@/components/ui/BackTo";
+import AccountSelector from "@/components/account/statistics/accountSelector";
+import { a } from "motion/react-client";
 
-export default function TransactionsPage({
-  accountType,
-}: TransactionsPageProps) {
+export default function TransactionsPage() {
+  const searchParams = useSearchParams();
+  const typeParam = searchParams.get("type");
+
+  const [accountType, setAccountType] = useState<
+    "mandatory" | "principal" | "voluntary" | "voluntary-data" | "all" | null
+  >(null);
+
+  useEffect(() => {
+    const validTypes = [
+      "mandatory",
+      "principal",
+      "voluntary",
+      "voluntary-data",
+      "all",
+    ] as const;
+
+    if (typeParam) {
+      if (validTypes.includes(typeParam as (typeof validTypes)[number])) {
+        setAccountType(typeParam as (typeof validTypes)[number]);
+      } else {
+        setAccountType(null);
+      }
+    } else {
+      // If no type param, default to 'all'
+      setAccountType("all");
+    }
+  }, [typeParam]);
+
   const [activeFilter, setActiveFilter] = useState<
     "all" | "deposits" | "interest" | "shu" | "withdrawals"
   >("all");
 
-  // Date interval state
   const today = new Date();
   const weekAgo = new Date(today);
   weekAgo.setDate(today.getDate() - 7);
@@ -30,11 +58,16 @@ export default function TransactionsPage({
     endDate: today,
   });
 
-  // State to track if date filtering is active (user has selected a specific range)
   const [isDateFilterActive, setIsDateFilterActive] = useState(false);
 
+  if (!accountType) {
+    return <div>Missing or invalid account type in URL (?type=...)</div>;
+  }
+
   const transactionsData =
-    accountType === "voluntary"
+    accountType === "all"
+      ? allTransactionsData
+      : accountType === "voluntary"
       ? newVoluntaryTransactionsData
       : accountType === "principal"
       ? principalTransactionsData
@@ -42,42 +75,23 @@ export default function TransactionsPage({
       ? voluntaryTransactionsData
       : mandatoryTransactionsData;
 
-  // Create mock account data
-  const mockAccountData = {
-    balance:
-      accountType === "voluntary"
-        ? 125000
-        : accountType === "principal"
-        ? 85000000
-        : 85000,
-  };
-
-  // Helper function to parse transaction dates
   const parseTransactionDate = (dateString: string): Date => {
-    // Handle formats like "Sep 9, 2024, 04:30pm" or "Sep 9, 2024"
     const cleanDateString = dateString.replace(/,\s*\d{1,2}:\d{2}[ap]m$/i, "");
     return new Date(cleanDateString);
   };
 
-  // Filter transactions by date range and category
   const filteredTransactions = transactionsData.filter((transaction) => {
-    // First filter by category
-    let categoryMatch = false;
-
-    if (activeFilter === "all") {
-      categoryMatch = true;
-    } else if (activeFilter === "withdrawals") {
-      categoryMatch = transaction.category === "withdrawals";
-    } else {
-      categoryMatch = transaction.category === activeFilter;
-    }
+    const categoryMatch =
+      activeFilter === "all"
+        ? true
+        : transaction.category === activeFilter ||
+          (activeFilter === "withdrawals" &&
+            transaction.category === "withdrawals");
 
     if (!categoryMatch) return false;
 
-    // If date filtering is not active, show all transactions
     if (!isDateFilterActive) return true;
 
-    // Filter by date range when date filtering is active
     const transactionDate = parseTransactionDate(transaction.transactionDate);
     const startOfDay = new Date(dateInterval.startDate);
     startOfDay.setHours(0, 0, 0, 0);
@@ -87,7 +101,6 @@ export default function TransactionsPage({
     return transactionDate >= startOfDay && transactionDate <= endOfDay;
   });
 
-  // Handle date range changes - this activates date filtering
   const handleDateIntervalChange = (interval: {
     startDate: Date;
     endDate: Date;
@@ -96,40 +109,60 @@ export default function TransactionsPage({
     setIsDateFilterActive(true);
   };
 
-  // Handle loading transactions based on date range
   const handleLoadTransactions = (
     startDate: Date | null,
     endDate: Date | null
   ) => {
-    if (startDate === null || endDate === null) {
-      // Deactivate date filtering to show all transactions
+    if (!startDate || !endDate) {
       setIsDateFilterActive(false);
     } else {
-      // Load transactions for specific date range
       setDateInterval({ startDate, endDate });
       setIsDateFilterActive(true);
     }
   };
 
-  // Add error handling for missing data
-  if (!transactionsData) {
-    return <div>Loading...</div>;
-  }
+  const backHref =
+    accountType === "all" ? `/account` : `/account/${accountType}`;
 
   return (
     <div className={styles.transactionsPage}>
       <div className={styles.header}>
-        <div className={styles.titleSection}>
-          <h1 className={styles.title}>Transactions History</h1>
-          <div className={styles.dateRange}>
-            <DateRangePicker
-              dateInterval={dateInterval}
-              onDateIntervalChange={handleDateIntervalChange}
-              onLoadTransactions={handleLoadTransactions}
-              isDateFilterActive={isDateFilterActive}
-              className={styles.dateText}
-            />
-          </div>
+        <div
+          className={styles.titleSection}
+          style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+        >
+          <BackTo href={backHref} text="" />
+          <h1 className={styles.title} style={{ margin: 0 }}>
+            Transactions History
+          </h1>
+        </div>
+
+        <div style={{ marginTop: "1rem" }}>
+          <AccountSelector
+            accountType={accountType}
+            onAccountTypeChange={(type) => {
+              const validTypes = [
+                "mandatory",
+                "principal",
+                "voluntary",
+                "voluntary-data",
+                "all",
+              ] as const;
+              if (validTypes.includes(type as (typeof validTypes)[number])) {
+                setAccountType(type as (typeof validTypes)[number]);
+              }
+            }}
+          />
+        </div>
+
+        <div className={styles.dateRange} style={{ marginTop: "1rem" }}>
+          <DateRangePicker
+            dateInterval={dateInterval}
+            onDateIntervalChange={handleDateIntervalChange}
+            onLoadTransactions={handleLoadTransactions}
+            isDateFilterActive={isDateFilterActive}
+            className={styles.dateText}
+          />
         </div>
       </div>
 

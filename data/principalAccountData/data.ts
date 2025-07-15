@@ -1,7 +1,7 @@
 import { principalTransactionsData } from './transactionsData';
 
 export let accountData = {
-  balance: 85000000.50,
+  balance: 2720.50,
   accountType: "Principal" as "Mandatory" | "Voluntary" | "Principal",
   accountNumber: "3456789012",
   accountTypeFull: "Principal Savings Account",

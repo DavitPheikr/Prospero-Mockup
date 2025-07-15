@@ -39,6 +39,10 @@ export default function MandatoryAccountDetailsCard() {
           <span className={styles.label}>Date Of Creation</span>
           <span className={styles.value}>{accountData.dateOfCreation}</span>
         </div>
+        <div className={styles.detailRow}>
+          <span className={styles.label}>Deposit / Interval </span>
+          <span className={styles.value}>200 Rp / Month</span>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,39 @@
+@use '../../abstract/' as *;
+
+.periodSelector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: $brand-medium-gray;
+  font-size: $font-xs;
+}
+
+.periodLabel {
+  font-weight: $weight-medium;
+  margin-right: 0.25rem;
+}
+
+.periodOption {
+  background: none;
+  border: none;
+  color: $brand-medium-gray;
+  cursor: pointer;
+  font-size: $font-xs;
+  font-weight: $weight-medium;
+  padding: 0.5rem 0.75rem; // Slightly bigger than original (was 0.25rem)
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+
+  &:hover {
+    color: $brand-primary;
+    background-color: rgba($brand-primary, 0.05);
+  }
+
+  &.active {
+    color: $brand-primary;
+    font-weight: $weight-semibold;
+    background-color: rgba($brand-primary, 0.1);
+  }
+}

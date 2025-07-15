@@ -6,14 +6,19 @@ import PaymentAlertCard from "./PaymentAlertCard";
 import MandatoryAccountDetailsCard from "./save/mandatory";
 import PrincipalAccountDetailsCard from "./save/principal";
 import VoluntaryAccountDetailsCard from "./save/voluntary";
+import BackTo from "@/components/ui/BackTo";
+
 interface MainProps {
   type: string;
 }
 
 export default function Main({ type }: MainProps) {
+  console.log("logging type", type);
   return (
     <div className={Styles.dashboardContainer}>
       <div className={Styles.leftColumn}>
+        <BackTo href="/account" text="Back to Accounts" />
+        {/* ...existing code... */}
         {type === "mandatory" ? (
           <MandatoryAccountDetailsCard />
         ) : type === "principal" ? (
@@ -23,11 +28,8 @@ export default function Main({ type }: MainProps) {
         )}
         <AccountStatisticsCard type={type} />
       </div>
-
       <div className={Styles.rightColumn}>
-        {(type === "mandatory" || type === "dynamic") && (
-          <PaymentAlertCard type={type} />
-        )}
+        {type === "mandatory" && <PaymentAlertCard type={type} />}
         <RecentTransactionsCard type={type} />
       </div>
     </div>

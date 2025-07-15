@@ -22,7 +22,7 @@ export default function VoluntaryAccountCard({
   };
 
   const handleCardClick = () => {
-    router.push("/account/voluntary/dashboard");
+    router.push("/account/voluntary");
   };
 
   return (

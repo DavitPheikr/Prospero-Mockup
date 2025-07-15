@@ -15,7 +15,7 @@ export default function PrincipalAccountCard() {
   };
 
   const handleCardClick = () => {
-    router.push("/account/principal/dashboard");
+    router.push("/account/principal");
   };
 
   return (

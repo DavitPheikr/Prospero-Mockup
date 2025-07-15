@@ -1,7 +1,7 @@
 import { mandatoryTransactionsData } from './transactionsData';
 
 export const accountData = {
-  balance: 138.38,
+  balance: 3438.38,
   accountType: "Mandatory",
   accountNumber: "1748951657",
   accountTypeFull: "Mandatory Savings Account",
@@ -10,14 +10,14 @@ export const accountData = {
 
 export const statisticsData = {
   "3 months": {
-    totalProfit: 8500000,
+    totalProfit: 0,
     profitFromInterest: 5100000,
     profitFromSHU: 3400000,
     interestProgress: 60,
     shuProgress: 40,
   },
   "6 months": {
-    totalProfit: 18200000,
+    totalProfit: 18200000,    
     profitFromInterest: 11500000,
     profitFromSHU: 6700000,
     interestProgress: 63,

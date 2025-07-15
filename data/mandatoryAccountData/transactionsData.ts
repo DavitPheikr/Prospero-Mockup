@@ -14,7 +14,7 @@ export const mandatoryTransactionsData: Transaction[] = [
     transactionDate: 'Jan 5, 2025, 10:00am',
     from: 'Davit Pheikrishvili',
     type: 'Mandatory Contribution',
-    amount: 500000.00,
+    amount: 200.00,
     category: 'deposits'
   },
   {
@@ -22,7 +22,7 @@ export const mandatoryTransactionsData: Transaction[] = [
     transactionDate: 'Jan 1, 2025, 02:00pm',
     from: 'Cooperative',
     type: 'Monthly Interest',
-    amount: 425000.00,
+    amount: 100.00,
     category: 'interest'
   },
   {
@@ -30,7 +30,7 @@ export const mandatoryTransactionsData: Transaction[] = [
     transactionDate: 'Dec 5, 2024, 10:00am',
     from: 'Davit Pheikrishvili',
     type: 'Mandatory Contribution',
-    amount: 500000.00,
+    amount: 200.00,
     category: 'deposits'
   },
   {
@@ -38,7 +38,7 @@ export const mandatoryTransactionsData: Transaction[] = [
     transactionDate: 'Dec 1, 2024, 02:00pm',
     from: 'Cooperative',
     type: 'Monthly Interest',
-    amount: 420000.00,
+    amount: 100.00,
     category: 'interest'
   },
   {
@@ -46,7 +46,7 @@ export const mandatoryTransactionsData: Transaction[] = [
     transactionDate: 'Dec 1, 2024, 10:00am',
     from: 'Cooperative',
     type: 'SHU Profit',
-    amount: 2500000.00,
+    amount: 400.00,
     category: 'shu'
   },
   {
@@ -54,7 +54,7 @@ export const mandatoryTransactionsData: Transaction[] = [
     transactionDate: 'Nov 5, 2024, 10:00am',
     from: 'Davit Pheikrishvili',
     type: 'Mandatory Contribution',
-    amount: 500000.00,
+    amount: 200.00,
     category: 'deposits'
   },
   {
@@ -62,7 +62,7 @@ export const mandatoryTransactionsData: Transaction[] = [
     transactionDate: 'Nov 1, 2024, 02:00pm',
     from: 'Cooperative',
     type: 'Monthly Interest',
-    amount: 415000.00,
+    amount: 100.00,
     category: 'interest'
   },
   {
@@ -70,7 +70,7 @@ export const mandatoryTransactionsData: Transaction[] = [
     transactionDate: 'Oct 5, 2024, 10:00am',
     from: 'Davit Pheikrishvili',
     type: 'Mandatory Contribution',
-    amount: 500000.00,
+    amount: 200.00,
     category: 'deposits'
   },
   {
@@ -78,7 +78,7 @@ export const mandatoryTransactionsData: Transaction[] = [
     transactionDate: 'Jun 1, 2024, 10:00am',
     from: 'Cooperative',
     type: 'SHU Profit',
-    amount: 2200000.00,
+    amount: 400.00,
     category: 'shu'
   },
   // First transaction
@@ -87,7 +87,7 @@ export const mandatoryTransactionsData: Transaction[] = [
     transactionDate: 'Feb 26, 2024, 10:00am',
     from: 'Davit Pheikrishvili',
     type: 'Mandatory Contribution',
-    amount: 500000.00,
+    amount: 200.00,
     category: 'deposits'
   }
 ];

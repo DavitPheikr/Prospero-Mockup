@@ -6,6 +6,7 @@
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(229, 231, 235, 0.6);
+  max-height: fit-content;
 }
 
 .header {
@@ -127,15 +128,17 @@
 }
 
 .breakdown {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 1.25rem;
+  flex: 1;
 }
+
+
 
 .breakdownItem {
   position: relative;
+  flex: 1;
 }
-
 .breakdownHeader {
   display: flex;
   align-items: center;
@@ -198,9 +201,10 @@
   display: none;
 }
 
+
 @media (max-width: 768px) {
   .breakdown {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 1rem;
   }
 
@@ -238,4 +242,19 @@
     width: 28px;
     height: 28px;
   }
+}
+
+.breakdownSection{
+  display: flex;
+  width: 100%;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.breakdownSectionAccount {
+  display: flex;
+  width: 100%;
+  gap: 1.25rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }

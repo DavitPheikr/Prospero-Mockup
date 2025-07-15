@@ -2,9 +2,9 @@ import { voluntaryTransactionsData } from './transactionsData';
 
 // Static voluntary account data (existing account)
 export const accountData = {
-  balance: 25750000.50,
+  balance: 2635.00,
   accountType: "Voluntary",
-  accountNumber: "3413023722",
+  accountNumber: "9876543210",
   accountTypeFull: "Voluntary Savings Account",
   dateOfCreation: "15.08.2024",
 };
@@ -12,36 +12,51 @@ export const accountData = {
 
 export const statisticsData = {
   "3 months": {
-    totalProfit: 12800000,
-    profitFromInterest: 7200000,
-    profitFromSHU: 5600000,
-    interestProgress: 56,
-    shuProgress: 44,
+    totalProfit: 1200.00,
+    profitFromInterest: 700.00,
+    profitFromSHU: 500.00,
+    interestProgress: 58,
+    shuProgress: 42,
   },
   "6 months": {
-    totalProfit: 24500000,
-    profitFromInterest: 14700000,
-    profitFromSHU: 9800000,
-    interestProgress: 60,
-    shuProgress: 40,
+    totalProfit: 2100.00,
+    profitFromInterest: 1300.00,
+    profitFromSHU: 800.00,
+    interestProgress: 62,
+    shuProgress: 38,
   },
   "1y": {
-    totalProfit: 42000000,
-    profitFromInterest: 23800000,
-    profitFromSHU: 18200000,
-    interestProgress: 57,
-    shuProgress: 43,
+    totalProfit: 4100.00,
+    profitFromInterest: 2500.00,
+    profitFromSHU: 1600.00,
+    interestProgress: 61,
+    shuProgress: 39,
   },
   all: {
-    totalProfit: 58900000,
-    profitFromInterest: 32100000,
-    profitFromSHU: 26800000,
-    interestProgress: 54,
-    shuProgress: 46,
+    totalProfit: 5000.00,
+    profitFromInterest: 3000.00,
+    profitFromSHU: 2000.00,
+    interestProgress: 60,
+    shuProgress: 40,
   },
 };
 
 export const periods = ["3 months", "6 months", "1y", "all"];
+
+// Types for period and statistics
+export type VoluntaryPeriod = "3 months" | "6 months" | "1y" | "all";
+export interface VoluntaryStatistics {
+  totalProfit: number;
+  profitFromInterest: number;
+  profitFromSHU: number;
+  interestProgress: number;
+  shuProgress: number;
+}
+
+// Helper to get statistics for a given period
+export const getStatisticsForPeriod = (period: VoluntaryPeriod): VoluntaryStatistics => {
+  return statisticsData[period] || statisticsData["all"];
+};
 
 export const transactionsData = voluntaryTransactionsData.slice(0, 5).map(transaction => ({
   id: parseInt(transaction.refId.replace(/\D/g, '')),
