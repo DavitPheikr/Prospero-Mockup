@@ -14,13 +14,29 @@ export default function SideNavbar() {
 
   const isAccountPage = accountPages.some((page) => pathname.startsWith(page));
 
-  const filteredNavLinks = isAccountPage
-    ? navLinks.filter((link) => accountPages.includes(link.href))
-    : navLinks;
+  let displayedLinks = navLinks;
+
+  if (isAccountPage) {
+    displayedLinks = navLinks.filter((link) => accountPages.includes(link.href));
+  } else {
+    // For non-account pages, filter out account links
+    displayedLinks = navLinks.filter((link) => !accountPages.includes(link.href));
+
+    // If it's an employee or ministry path, update report links
+    if (pathname.startsWith("/employee") || pathname.startsWith("/ministry")) {
+      const prefix = pathname.startsWith("/employee") ? "/employee" : "/ministry";
+      displayedLinks = displayedLinks.map((link) => {
+        if (link.href.startsWith("/raport")) {
+          return { ...link, href: `${prefix}${link.href}` };
+        }
+        return link;
+      });
+    }
+  }
 
   return (
     <nav className={styles.sideNavbar}>
-      {filteredNavLinks.map((item) => (
+      {displayedLinks.map((item) => (
         <Link
           href={item.href}
           key={item.label}
