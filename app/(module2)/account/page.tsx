@@ -1,10 +1,10 @@
-import Navbar from "@/components/navbar";
+import MainLayout from "@/components/layout/MainLayout";
 import Hero from "@/components/landing/hero";
+
 export default function Home() {
   return (
-    <>
-      <Navbar />
+    <MainLayout>
       <Hero />
-    </>
+    </MainLayout>
   );
 }

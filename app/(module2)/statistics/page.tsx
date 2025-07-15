@@ -1,10 +1,10 @@
 import StatsPage from "@/components/account/statistics/statsPage";
-import Navbar from "@/components/navbar";
+import MainLayout from "@/components/layout/MainLayout";
+
 export default function StatisticsPage() {
   return (
-    <div>
-      <Navbar />
-      <StatsPage />
-    </div>
+    <MainLayout>
+      <StatsPage accountType="all" />
+    </MainLayout>
   );
 }

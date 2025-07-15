@@ -1,0 +1,47 @@
+.sideNavbar {
+  width: 220px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+}
+
+.navItem {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #7e7e7e;
+  gap: 12px;
+}
+
+.navItem.selected {
+  background: linear-gradient(to right, #24425b, #6288c9);
+  color: white;
+}
+
+.iconContainer {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #f1f3f6;
+}
+
+.navItem.selected .iconContainer {
+  background-color: transparent;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: 500;
+} 

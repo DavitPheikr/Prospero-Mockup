@@ -1,11 +1,10 @@
-import Navbar from "@/components/navbar";
+import MainLayout from "@/components/layout/MainLayout";
 import TransactionsPage from "@/components/account/transactions/TransactionsPage";
 
 export default function MandatoryTransactions() {
   return (
-    <div>
-      <Navbar />
+    <MainLayout>
       <TransactionsPage />
-    </div>
+    </MainLayout>
   );
 }
