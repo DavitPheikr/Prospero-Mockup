@@ -1,0 +1,124 @@
+@use "../../abstract" as *;
+
+.transactionTableHead th {
+  background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
+  color: #094B9C;
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 2px solid #e3f2fd;
+}
+// Page Wrapper
+.pageWrapper {
+  background-color: #f5f6fa;
+  min-height: 100vh;
+  font-family: $font-primary;
+}
+
+// Main Container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  min-height: calc(100vh - 120px);
+}
+// Page Header
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  
+  h1 {
+    color: #495057;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+.selectorContainer{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.headerActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.filterPanel {
+  margin-bottom: 2rem;
+}
+
+.tableContainer {
+  margin-top: 2rem;
+}
+
+
+// Member Table - styled like balance sheet
+.balanceTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  margin-bottom: 2rem;
+  font-family: $font-primary;
+}
+.balanceTable th {
+  background: linear-gradient(135deg, #5084d4 0%, #4a7bc8 100%);
+  color: white;
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-bottom: 2px solid #4a7bc8;
+}
+.transactionTable{
+    .balanceTable th {
+  background: linear-gradient(135deg, #5084d4 10%, #4a7bc8 100%);
+  color: white;
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-bottom: 2px solid #4a7bc8;
+}
+}
+.balanceTable td {
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+.balanceTable tbody tr {
+  &:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  &:hover {
+    background-color: #e3f2fd;
+  }
+}
+.balanceTable tbody tr:last-child td {
+  border-bottom: none;
+}
+.selectedRow {
+  background-color: #e3f2fd !important;
+}
+
+.transactionTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.transactionTable th, .transactionTable td {
+  border: 1px solid #eaeaea;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.transactionTable th {
+  background: #f5f5f5;
+}
