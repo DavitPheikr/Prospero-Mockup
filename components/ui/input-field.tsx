@@ -29,7 +29,7 @@ export default function InputField({
     <div className={styles.formGroup}>
       <label className={styles.label}>
         {label} {required && <span className={styles.required}>*</span>}
-        {optional && <span className={styles.optional}>(Optional)</span>}
+        {optional && <span className={styles.optional}>(Opsional)</span>}
       </label>
       <div className={isHighlighted ? styles.highlightedField : ""}>
         <TextInput

@@ -29,7 +29,7 @@ export default function VoluntaryAccountCard({
     <div className={styles.accountCard} onClick={handleCardClick}>
       <div className={styles.accountLeft}>
         <div className={styles.accountTitle}>
-          <h3>Voluntary Account</h3>
+          <h3>Simpanan Sukarela</h3>
         </div>
       </div>
       <div className={styles.accountRight}>
@@ -38,13 +38,13 @@ export default function VoluntaryAccountCard({
         </div>
         <div className={styles.accountDetails}>
           <div className={styles.accountDetail}>
-            <span className={styles.detailLabel}>Account Number</span>
+            <span className={styles.detailLabel}>Nomor Rekening</span>
             <span className={styles.detailValue}>
               {displayData.accountNumber}
             </span>
           </div>
           <div className={styles.accountDetail}>
-            <span className={styles.detailLabel}>Date Created</span>
+            <span className={styles.detailLabel}>Tanggal Dibuat</span>
             <span className={styles.detailValue}>
               {displayData.dateOfCreation}
             </span>

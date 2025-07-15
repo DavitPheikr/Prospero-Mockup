@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import styles from "@/scss/components/hasAccount/RecentTransactionsCard.module.scss";
 import Button from "@/components/ui/Button";
 import TransactionItem from "@/components/ui/TransactionItem";
@@ -7,7 +7,7 @@ import { transactionsData as mandatoryTransactionsData } from "@/data/mandatoryA
 import { transactionsData as voluntaryTransactionsData } from "@/data/voluntaryAccountData/data";
 import { transactionsData as principalTransactionsData } from "@/data/principalAccountData/data";
 import { transactionsData as newVoluntaryTransactionsData } from "@/data/newVoluntaryAccountData/data";
-
+import MakeTransactions from "./makeTransactions";
 interface RecentTransactionsCardProps {
   type: string;
 }
@@ -16,6 +16,7 @@ export default function RecentTransactionsCard({
   type,
 }: RecentTransactionsCardProps) {
   const router = useRouter();
+  const pathname = usePathname();
 
   const transactionsData =
     type === "voluntary"
@@ -25,6 +26,12 @@ export default function RecentTransactionsCard({
       : type === "voluntary-data"
       ? voluntaryTransactionsData
       : mandatoryTransactionsData;
+
+  // Show 4 transactions if on /account, otherwise show 5
+  const displayedTransactions =
+    pathname === "/account"
+      ? transactionsData.slice(0, 4)
+      : transactionsData.slice(0, 5);
 
   const handleTransactionClick = (id: number) => {
     console.log(`Transaction ${id} clicked`);
@@ -45,40 +52,45 @@ export default function RecentTransactionsCard({
   };
 
   return (
-    <div className={styles.transactionsCard}>
-      <div className={styles.header}>
-        <h3 className={styles.title}>Recent Transactions</h3>
-      </div>
+    <div>
+      <div className={styles.transactionsCard} key={pathname}>
+        <div className={styles.header}>
+          <h3 className={styles.title}>Transaksi Terbaru</h3>
+          {(type === "voluntary" || type === "voluntary-data") && (
+            <MakeTransactions />
+          )}
+        </div>
 
-      <div className={styles.transactionsList}>
-        {transactionsData.length > 0 ? (
-          transactionsData.map((transaction) => (
-            <TransactionItem
-              key={transaction.id}
-              {...transaction}
-              onClick={() => handleTransactionClick(transaction.id)}
-            />
-          ))
-        ) : (
-          <div
-            style={{
-              padding: "2rem",
-              textAlign: "center",
-              color: "#666",
-            }}
+        <div className={styles.transactionsList}>
+          {displayedTransactions.length > 0 ? (
+            displayedTransactions.map((transaction) => (
+              <TransactionItem
+                key={transaction.id}
+                {...transaction}
+                onClick={() => handleTransactionClick(transaction.id)}
+              />
+            ))
+          ) : (
+            <div
+              style={{
+                padding: "2rem",
+                textAlign: "center",
+                color: "#666",
+              }}
+            >
+              Belum ada transaksi
+            </div>
+          )}
+        </div>
+
+        <div className={styles.footer}>
+          <Button
+            className={styles.viewAllButton}
+            onClick={handleViewAllTransactions}
           >
-            No transactions yet
-          </div>
-        )}
-      </div>
-
-      <div className={styles.footer}>
-        <Button
-          className={styles.viewAllButton}
-          onClick={handleViewAllTransactions}
-        >
-          View All Transactions
-        </Button>
+            Lihat Semua Transaksi
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,17 @@
-import MainLayout from "@/components/layout/MainLayout";
+import Navbar from "@/components/layout/Navbar";
+import SideNavbar from "@/components/layout/SideNavbar";
 import TransactionsPage from "@/components/account/transactions/TransactionsPage";
 
 export default function MandatoryTransactions() {
   return (
-    <MainLayout>
-      <TransactionsPage />
-    </MainLayout>
+    <>
+      <Navbar />
+      <div style={{ display: "flex" }}>
+        <SideNavbar />
+        <main style={{ flex: 1 }}>
+          <TransactionsPage />
+        </main>
+      </div>
+    </>
   );
 }

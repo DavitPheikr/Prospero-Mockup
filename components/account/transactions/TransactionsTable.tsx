@@ -17,6 +17,15 @@ interface TransactionsTableProps {
 export default function TransactionsTable({
   transactions,
 }: TransactionsTableProps) {
+  // Translation map for transaction type
+  const typeToIndo: Record<string, string> = {
+    "Initial Principal Deposit": "Setoran Pokok Awal",
+    "Mandatory Contribution": "Simpanan Wajib",
+    "Monthly Interest": "Bunga Bulanan",
+    "SHU Profit": "SHU",
+    "Voluntary Deposit": "Simpanan Sukarela",
+    Withdrawal: "Penarikan",
+  };
   const formatAmount = (amount: number) => {
     const isNegative = amount < 0;
     const absoluteAmount = Math.abs(amount);
@@ -32,7 +41,7 @@ export default function TransactionsTable({
   if (!transactions || transactions.length === 0) {
     return (
       <div className={styles.emptyState}>
-        <p>No transactions found for the selected filter.</p>
+        <p>Tidak ada transaksi untuk filter yang dipilih.</p>
       </div>
     );
   }
@@ -41,10 +50,10 @@ export default function TransactionsTable({
     <div className={styles.tableContainer}>
       <div className={styles.tableHeader}>
         <div className={styles.headerCell}>Ref ID</div>
-        <div className={styles.headerCell}>Transaction Date</div>
-        <div className={styles.headerCell}>From</div>
-        <div className={styles.headerCell}>Type</div>
-        <div className={styles.headerCell}>Amount</div>
+        <div className={styles.headerCell}>Tanggal Transaksi</div>
+        <div className={styles.headerCell}>Dari</div>
+        <div className={styles.headerCell}>Tipe</div>
+        <div className={styles.headerCell}>Jumlah</div>
       </div>
 
       {/* Make the table body scrollable with a fixed max height */}
@@ -60,20 +69,20 @@ export default function TransactionsTable({
             <div className={styles.tableCell} data-label="Ref ID:">
               {transaction.refId}
             </div>
-            <div className={styles.tableCell} data-label="Date:">
+            <div className={styles.tableCell} data-label="Tanggal:">
               {transaction.transactionDate}
             </div>
-            <div className={styles.tableCell} data-label="From:">
+            <div className={styles.tableCell} data-label="Dari:">
               {transaction.from}
             </div>
-            <div className={styles.tableCell} data-label="Type:">
-              {transaction.type}
+            <div className={styles.tableCell} data-label="Tipe:">
+              {typeToIndo[transaction.type] || transaction.type}
             </div>
             <div
               className={`${styles.tableCell} ${styles.amountCell} ${
                 transaction.amount < 0 ? styles.negativeAmount : ""
               }`}
-              data-label="Amount:"
+              data-label="Jumlah:"
             >
               {formatAmount(transaction.amount)}
             </div>

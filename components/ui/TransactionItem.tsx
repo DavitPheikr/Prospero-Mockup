@@ -21,6 +21,21 @@ export default function TransactionItem({
   amount,
   onClick,
 }: TransactionItemProps) {
+  // Translation maps
+  const typeToIndo: Record<string, string> = {
+    "Initial Principal Deposit": "Setoran Pokok Awal",
+    "Mandatory Contribution": "Simpanan Wajib",
+    "Monthly Interest": "Bunga Bulanan",
+    "SHU Profit": "SHU",
+    "Voluntary Deposit": "Simpanan Sukarela",
+    Withdrawal: "Penarikan",
+  };
+  const categoryToIndo: Record<string, string> = {
+    deposit: "Simpanan",
+    interest: "Bunga",
+    shu: "SHU",
+    withdrawals: "Penarikan",
+  };
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -51,14 +66,18 @@ export default function TransactionItem({
       </div>
 
       <div className={styles.transactionDetails}>
-        <div className={styles.transactionTitle}>{title}</div>
-        <div className={styles.transactionSubtitle}>{subtitle}</div>
+        <div className={styles.transactionTitle}>
+          {typeToIndo[title] || title}
+        </div>
+        <div className={styles.transactionSubtitle}>
+          {categoryToIndo[subtitle] || subtitle}
+        </div>
         <div className={styles.transactionDate}>{date}</div>
       </div>
 
       <div className={styles.amountSection}>
         <div className={`${styles.amount} ${styles[type]}`}>
-          + {formatCurrency(amount)}
+          {type === "incoming" ? "+" : "-"} {formatCurrency(amount)}
         </div>
       </div>
     </div>

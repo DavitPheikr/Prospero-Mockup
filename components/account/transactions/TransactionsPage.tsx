@@ -61,7 +61,9 @@ export default function TransactionsPage() {
   const [isDateFilterActive, setIsDateFilterActive] = useState(false);
 
   if (!accountType) {
-    return <div>Missing or invalid account type in URL (?type=...)</div>;
+    return (
+      <div>Tipe akun tidak ditemukan atau tidak valid di URL (?type=...)</div>
+    );
   }
 
   const transactionsData =
@@ -133,7 +135,7 @@ export default function TransactionsPage() {
         >
           <BackTo href={backHref} text="" />
           <h1 className={styles.title} style={{ margin: 0 }}>
-            Transactions History
+            Riwayat Transaksi
           </h1>
         </div>
 

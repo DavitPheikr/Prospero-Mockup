@@ -22,7 +22,7 @@ export const allTransactionsData: Transaction[] = [
   {
     refId: 'MAN123456789',
     transactionDate: 'Jan 5, 2025, 10:00am',
-    from: 'Davit Pheikrishvili',
+   from: 'John Doe',
     type: 'Mandatory Contribution',
     amount: 200.00,
     category: 'deposits',
@@ -49,7 +49,7 @@ export const allTransactionsData: Transaction[] = [
   {
     refId: 'MAN123456791',
     transactionDate: 'Dec 5, 2024, 10:00am',
-    from: 'Davit Pheikrishvili',
+   from: 'John Doe',
     type: 'Mandatory Contribution',
     amount: 200.00,
     category: 'deposits',

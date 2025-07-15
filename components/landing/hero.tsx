@@ -32,8 +32,8 @@ export default function Hero() {
         <div className={styles.leftColumn}>
           <div className={styles.pageContainer}>
             <div className={styles.sumSection}>
-              <h3 className={styles.sumLabel}>SUM AMOUNT</h3>
-              <h1 className={styles.sumAmount}>Rp 5,158.88</h1>
+              <h3 className={styles.sumLabel}>JUMLAH TOTAL</h3>
+              <h1 className={styles.sumAmount}>Rp 5.158,88</h1>
             </div>
 
             <div className={styles.accountsGrid}>

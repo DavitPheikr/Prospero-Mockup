@@ -1,10 +1,17 @@
-import MainLayout from "@/components/layout/MainLayout";
+import Navbar from "@/components/layout/Navbar";
+import SideNavbar from "@/components/layout/SideNavbar";
 import Hero from "@/components/landing/hero";
 
 export default function Home() {
   return (
-    <MainLayout>
-      <Hero />
-    </MainLayout>
+    <>
+      <Navbar />
+      <div style={{ display: "flex" }}>
+        <SideNavbar />
+        <main style={{ flex: 1 }}>
+          <Hero />
+        </main>
+      </div>
+    </>
   );
 }

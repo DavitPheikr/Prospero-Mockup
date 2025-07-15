@@ -22,16 +22,16 @@ export default function PaymentAlertCard({ type }: PaymentAlertCardProps) {
 
   const getPaymentTitle = () => {
     if (isPrincipalPayment) {
-      return "Principal Core Deposit Required";
+      return "Setoran Pokok Diperlukan";
     }
-    return "Upcoming Mandatory Payment";
+    return "Pembayaran Wajib Akan Datang";
   };
 
   const getPaymentDescription = () => {
     if (isPrincipalPayment) {
-      return "Complete your account setup with a principal deposit of ";
+      return "Lengkapi pembuatan akun Anda dengan setoran pokok sebesar ";
     }
-    return "Savings Account requires a payment of ";
+    return "Rekening Wajib memerlukan pembayaran sebesar ";
   };
 
   const formatCurrency = (amount: number) => {
@@ -74,10 +74,10 @@ export default function PaymentAlertCard({ type }: PaymentAlertCardProps) {
         <div className={styles.rightSection}>
           <div className={styles.dueBadge}>
             <span className={styles.dueText}>
-              Due in {paymentData.daysRemaining} days
+              Jatuh tempo dalam {paymentData.daysRemaining} hari
             </span>
           </div>
-          <Button>Pay Now</Button>
+          <Button>Bayar Sekarang</Button>
         </div>
       </div>
 
@@ -91,7 +91,9 @@ export default function PaymentAlertCard({ type }: PaymentAlertCardProps) {
           </span>
         </div>
 
-        <div className={styles.dueDate}>Due date: {paymentData.dueDate}</div>
+        <div className={styles.dueDate}>
+          Tanggal jatuh tempo: {paymentData.dueDate}
+        </div>
       </div>
     </div>
   );

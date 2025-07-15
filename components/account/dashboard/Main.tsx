@@ -17,7 +17,7 @@ export default function Main({ type }: MainProps) {
   return (
     <div className={Styles.dashboardContainer}>
       <div className={Styles.leftColumn}>
-        <BackTo href="/account" text="Back to Accounts" />
+        <BackTo href="/account" text="Kembali ke Akun" />
         {/* ...existing code... */}
         {type === "mandatory" ? (
           <MandatoryAccountDetailsCard />
@@ -30,6 +30,7 @@ export default function Main({ type }: MainProps) {
       </div>
       <div className={Styles.rightColumn}>
         {type === "mandatory" && <PaymentAlertCard type={type} />}
+
         <RecentTransactionsCard type={type} />
       </div>
     </div>

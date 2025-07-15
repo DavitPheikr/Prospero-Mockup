@@ -62,14 +62,14 @@ export const transactionsData = voluntaryTransactionsData.slice(0, 5).map(transa
   id: parseInt(transaction.refId.replace(/\D/g, '')),
   type: "incoming" as const,
   category: transaction.category === "withdrawals" ? "deposit" : transaction.category as "deposit" | "interest" | "shu",
-  title: transaction.type === "Voluntary Deposit" ? "Voluntary Deposit" :
-         transaction.type === "Withdrawal" ? "Withdrawal" :
-         transaction.type === "Monthly Interest" ? "Monthly Interest Profit" : 
-         "SHU Profit Distribution",
-  subtitle: transaction.type === "Voluntary Deposit" ? "Manual deposit by user" :
-            transaction.type === "Withdrawal" ? "Account withdrawal" :
-            transaction.type === "Monthly Interest" ? "Interest earned on account balance" :
-            "Quarterly profit sharing",
+  title: transaction.type === "Voluntary Deposit" ? "Setoran Sukarela" :
+         transaction.type === "Withdrawal" ? "Penarikan" :
+         transaction.type === "Monthly Interest" ? "Keuntungan Bunga Bulanan" : 
+         "Distribusi Keuntungan SHU",
+  subtitle: transaction.type === "Voluntary Deposit" ? "Setoran manual oleh pengguna" :
+            transaction.type === "Withdrawal" ? "Penarikan akun" :
+            transaction.type === "Monthly Interest" ? "Bunga yang diperoleh dari saldo akun" :
+            "Pembagian keuntungan triwulanan",
   date: transaction.transactionDate.split(',')[0],
   amount: transaction.amount,
 }));

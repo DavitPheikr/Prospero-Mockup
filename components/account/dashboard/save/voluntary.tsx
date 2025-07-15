@@ -28,22 +28,20 @@ export default function VoluntaryAccountDetailsCard({
           <div className={styles.mainBalance}>
             {formatCurrency(displayData.balance)}
           </div>
-          <div className={styles.accountTypeBadge}>
-            {displayData.accountType}
-          </div>
+          <div className={styles.accountTypeBadge}>Sukarela</div>
         </div>
       </div>
 
       <div className={styles.accountDetails}>
-        <h3 className={styles.sectionTitle}>ACCOUNT DETAILS</h3>
+        <h3 className={styles.sectionTitle}>DETAIL AKUN</h3>
 
         <div className={styles.detailRow}>
-          <span className={styles.label}>Account Number</span>
+          <span className={styles.label}>Nomor Rekening</span>
           <span className={styles.value}>{displayData.accountNumber}</span>
         </div>
 
         <div className={styles.detailRow}>
-          <span className={styles.label}>Date Of Creation</span>
+          <span className={styles.label}>Tanggal Dibuat</span>
           <span className={styles.value}>{displayData.dateOfCreation}</span>
         </div>
       </div>

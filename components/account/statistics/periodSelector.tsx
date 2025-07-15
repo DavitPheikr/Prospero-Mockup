@@ -24,18 +24,26 @@ export default function PeriodSelector({
   return (
     <div className={style.periodSelector}>
       <Calendar size={16} />
-      <span className={style.periodLabel}>Period:</span>
-      {periods.map((p) => (
-        <button
-          key={p}
-          onClick={() => onPeriodChange(p)}
-          className={`${style.periodOption} ${
-            period === p ? style.active : ""
-          }`}
-        >
-          {p}
-        </button>
-      ))}
+      <span className={style.periodLabel}>Periode:</span>
+      {periods.map((p) => {
+        let label: string = p;
+        if (p === "all") label = "Semua";
+        else if (p === "1 year") label = "1 Tahun";
+        else if (p === "6 months") label = "6 Bulan";
+        else if (p === "3 months") label = "3 Bulan";
+        else if (p === "1 month") label = "1 Bulan";
+        return (
+          <button
+            key={p}
+            onClick={() => onPeriodChange(p)}
+            className={`${style.periodOption} ${
+              period === p ? style.active : ""
+            }`}
+          >
+            {label}
+          </button>
+        );
+      })}
     </div>
   );
 }

@@ -17,10 +17,10 @@ interface StatsCardProps {
 }
 
 export const StatsCard: React.FC<StatsCardProps> = ({
-  title = "OVERALL ACCOUNT PROFIT",
+  title = "TOTAL KEUNTUNGAN AKUN",
   amount = "Rp 735.000",
   percentage = "+15.2%",
-  description = "since account creation",
+  description = "sejak pembuatan akun",
   trend = "positive",
 }) => {
   // Check if amount is zero (for black color)

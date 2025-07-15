@@ -58,9 +58,9 @@ export default function TransactionsCard({
     <div className={styles.transactionsPage}>
       <div className={styles.header}>
         <div className={styles.titleSection}>
-          <h1 className={styles.title}>Transactions History</h1>
+          <h1 className={styles.title}>Riwayat Transaksi</h1>
           <div className={styles.dateRange}>
-            <span className={styles.dateText}>Recent Transactions</span>
+            <span className={styles.dateText}>Transaksi Terbaru</span>
             <CalendarArrowDown className={styles.calendarIcon} size={18} />
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function TransactionsCard({
           <div className={styles.balanceCard}>
             <div className={styles.balanceIcon}>Rp</div>
             <div className={styles.balanceContent}>
-              <span className={styles.balanceLabel}>Balance</span>
+              <span className={styles.balanceLabel}>Saldo</span>
               <span className={styles.balanceAmount}>
                 {new Intl.NumberFormat("id-ID", {
                   style: "currency",
@@ -96,7 +96,7 @@ export default function TransactionsCard({
         onClick={handleViewAllTransactions}
         className={styles.viewAllButton}
       >
-        View All Transactions
+        Lihat Semua Transaksi
       </button>
     </div>
   );

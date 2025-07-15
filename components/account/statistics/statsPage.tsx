@@ -63,7 +63,7 @@ export default function StatsPage({ accountData }: StatsPageProps) {
     <div className={style.pageWrapper}>
       <div className={style.header}>
         <BackTo href={"/account"} text=""></BackTo>
-        <h1 className={style.title}>Statistics Page</h1>
+        <h1 className={style.title}>Halaman Statistik</h1>
       </div>
       <AccountSelector
         accountType={selectedAccountType}
@@ -71,7 +71,7 @@ export default function StatsPage({ accountData }: StatsPageProps) {
       />
 
       <div className={style.accountBalance}>
-        <h2 className={style.accountHeader}>Current Balance</h2>
+        <h2 className={style.accountHeader}>Saldo Saat Ini</h2>
         <div className={style.balanceContainer}>
           <div className={style.balanceLeft}>
             <h2 className={style.accountBalanceAmount}>

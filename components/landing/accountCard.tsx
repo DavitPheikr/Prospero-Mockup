@@ -15,12 +15,10 @@ export default function AccountCard({ onButtonClick }: AccountCardProps) {
           <div className={styles.cardIcon}>
             <Zap size={24} />
           </div>
-          <p className={styles.cardText}>
-            Interested in the voluntary account?
-          </p>
+          <p className={styles.cardText}>Tertarik dengan rekening sukarela?</p>
         </div>
         <Button className={styles.cardButton} onClick={onButtonClick}>
-          Learn More
+          Pelajari Lebih Lanjut
         </Button>
       </div>
     </div>

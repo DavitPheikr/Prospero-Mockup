@@ -1,5 +1,4 @@
-@import '../../../abstract/variables';
-@import '../../../abstract/fonts';
+@use '../../../abstract/' as *;
 
 .tableContainer {
   background-color: #FFF;

@@ -32,12 +32,12 @@ export let transactionsData = principalTransactionsData.slice(0, 5).map(transact
   id: parseInt(transaction.refId.replace(/\D/g, '')),
   type: "incoming" as const,
   category: transaction.category as "deposit" | "interest" | "shu",
-  title: transaction.type === "Initial Principal Deposit" ? "Principal Account Deposit" : 
-         transaction.type === "Monthly Interest" ? "Monthly Interest Profit" : 
-         "SHU Profit Distribution",
-  subtitle: transaction.type === "Initial Principal Deposit" ? "Initial principal account deposit" :
-            transaction.type === "Monthly Interest" ? "Interest earned on account balance" :
-            "Quarterly profit sharing",
+  title: transaction.type === "Initial Principal Deposit" ? "Setoran Rekening Pokok" : 
+         transaction.type === "Monthly Interest" ? "Keuntungan Bunga Bulanan" : 
+         "Distribusi Keuntungan SHU",
+  subtitle: transaction.type === "Initial Principal Deposit" ? "Setoran awal rekening pokok" :
+            transaction.type === "Monthly Interest" ? "Bunga yang diperoleh dari saldo akun" :
+            "Pembagian keuntungan triwulanan",
   date: transaction.transactionDate.split(',')[0],
   amount: transaction.amount,
 }));

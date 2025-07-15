@@ -59,18 +59,18 @@ export default function DateRangePicker({
 
   const generateMonths = () => {
     return [
-      { value: 0, label: "January" },
-      { value: 1, label: "February" },
-      { value: 2, label: "March" },
+      { value: 0, label: "Januari" },
+      { value: 1, label: "Februari" },
+      { value: 2, label: "Maret" },
       { value: 3, label: "April" },
-      { value: 4, label: "May" },
-      { value: 5, label: "June" },
-      { value: 6, label: "July" },
-      { value: 7, label: "August" },
+      { value: 4, label: "Mei" },
+      { value: 5, label: "Juni" },
+      { value: 6, label: "Juli" },
+      { value: 7, label: "Agustus" },
       { value: 8, label: "September" },
-      { value: 9, label: "October" },
+      { value: 9, label: "Oktober" },
       { value: 10, label: "November" },
-      { value: 11, label: "December" },
+      { value: 11, label: "Desember" },
     ];
   };
 
@@ -85,7 +85,7 @@ export default function DateRangePicker({
 
   const formatDateRange = () => {
     if (!isDateFilterActive) {
-      return "Select date range";
+      return "Pilih rentang tanggal";
     }
 
     const options: Intl.DateTimeFormatOptions = {
@@ -94,9 +94,9 @@ export default function DateRangePicker({
       year: "numeric",
     };
     return `${dateInterval.startDate.toLocaleDateString(
-      "en-US",
+      "id-ID",
       options
-    )} - ${dateInterval.endDate.toLocaleDateString("en-US", options)}`;
+    )} - ${dateInterval.endDate.toLocaleDateString("id-ID", options)}`;
   };
 
   const handleDateChange = (
@@ -161,7 +161,7 @@ export default function DateRangePicker({
       {showDatePicker && (
         <div className={styles.datePickerDropdown}>
           <div className={styles.dateSection}>
-            <h4 className={styles.dateLabel}>Start Date</h4>
+            <h4 className={styles.dateLabel}>Tanggal Mulai</h4>
             <div className={styles.selectContainer}>
               <select
                 className={`${styles.dateSelect} ${styles.yearSelect}`}
@@ -209,7 +209,7 @@ export default function DateRangePicker({
           </div>
 
           <div className={styles.dateSection}>
-            <h4 className={styles.dateLabel}>End Date</h4>
+            <h4 className={styles.dateLabel}>Tanggal Selesai</h4>
             <div className={styles.selectContainer}>
               <select
                 className={`${styles.dateSelect} ${styles.yearSelect}`}
@@ -261,13 +261,13 @@ export default function DateRangePicker({
               className={styles.clearButton}
               onClick={handleClearSelection}
             >
-              Clear & Load All
+              Hapus & Tampilkan Semua
             </button>
             <button
               className={styles.confirmButton}
               onClick={handleConfirmSelection}
             >
-              Apply Filter
+              Terapkan Filter
             </button>
           </div>
         </div>

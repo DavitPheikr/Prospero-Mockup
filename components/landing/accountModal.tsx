@@ -40,7 +40,7 @@ export default function AccountModal({
       }
     } catch (error) {
       console.error("Error creating account:", error);
-      alert("Error creating account. Please try again.");
+      alert("Terjadi kesalahan saat membuat akun. Silakan coba lagi.");
     } finally {
       setIsSubmitting(false);
     }
@@ -55,24 +55,24 @@ export default function AccountModal({
   if (!isOpen) return null;
 
   const accountFeatures = {
-    title: "Flexible Savings Features",
-    subtitle: "Save at your own pace",
+    title: "Fitur Tabungan Fleksibel",
+    subtitle: "Menabung sesuai keinginan Anda",
     features: [
       {
-        title: "Flexible Deposits",
-        description: "Add money whenever you want, no minimum requirements",
+        title: "Setoran Fleksibel",
+        description: "Tambah dana kapan saja, tanpa syarat minimum",
       },
       {
-        title: "Competitive Interest",
-        description: "Earn attractive interest rates on your savings",
+        title: "Bunga Kompetitif",
+        description: "Dapatkan suku bunga menarik untuk tabungan Anda",
       },
       {
-        title: "Easy Access",
-        description: "Simple and convenient account management",
+        title: "Akses Mudah",
+        description: "Kelola akun dengan mudah dan nyaman",
       },
       {
-        title: "Withdrawal Freedom",
-        description: "Access your funds when you need them",
+        title: "Bebas Penarikan",
+        description: "Akses dana Anda kapan pun dibutuhkan",
       },
     ],
   };
@@ -85,7 +85,7 @@ export default function AccountModal({
             ←
           </button>
           <div className={styles.titleSection}>
-            <h2 className={styles.title}>Voluntary Savings Account</h2>
+            <h2 className={styles.title}>Rekening Tabungan Sukarela</h2>
             <p className={styles.subtitle}>{accountFeatures.subtitle}</p>
           </div>
           <div className={styles.cardIcon}>
@@ -120,7 +120,7 @@ export default function AccountModal({
             className={styles.createButton}
             disabled={isSubmitting}
           >
-            {isSubmitting ? "CREATING..." : "CREATE ACCOUNT"}
+            {isSubmitting ? "MEMBUAT..." : "BUAT AKUN"}
           </Button>
         </div>
       </div>

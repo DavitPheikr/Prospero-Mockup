@@ -54,9 +54,9 @@ export const StatsContainer: React.FC<StatsContainerProps> = ({
 
   return (
     <div className={styles.statsContainer}>
-      {/* Overall Account Profit */}
+      {/* Total Keuntungan Akun */}
       <StatsCard
-        title="OVERALL ACCOUNT PROFIT"
+        title="TOTAL KEUNTUNGAN AKUN"
         amount={
           accountType === "mandatory" ||
           accountType === "principal" ||
@@ -73,7 +73,7 @@ export const StatsContainer: React.FC<StatsContainerProps> = ({
             ? "+12.5%" // mock value
             : "+15.2%"
         }
-        description="since account creation"
+        description="sejak pembuatan akun"
         trend={
           accountType === "mandatory" ||
           accountType === "principal" ||
@@ -83,9 +83,9 @@ export const StatsContainer: React.FC<StatsContainerProps> = ({
             : "positive"
         }
       />
-      {/* Monthly Interest Profit */}
+      {/* Keuntungan Bunga Bulanan */}
       <StatsCard
-        title="MONTHLY INTEREST PROFIT"
+        title="KEUNTUNGAN BUNGA BULANAN"
         amount={
           accountType === "mandatory" ||
           accountType === "principal" ||
@@ -102,7 +102,7 @@ export const StatsContainer: React.FC<StatsContainerProps> = ({
             ? "+8.0%" // mock value
             : "+15.0%"
         }
-        description="vs previous period"
+        description="vs periode sebelumnya"
         trend={
           accountType === "mandatory" ||
           accountType === "principal" ||
@@ -112,9 +112,9 @@ export const StatsContainer: React.FC<StatsContainerProps> = ({
             : "positive"
         }
       />
-      {/* SHU Distribution Profit */}
+      {/* Keuntungan Distribusi SHU */}
       <StatsCard
-        title="SHU DISTRIBUTION PROFIT"
+        title="KEUNTUNGAN DISTRIBUSI SHU"
         amount={
           accountType === "mandatory" ||
           accountType === "principal" ||
@@ -137,9 +137,9 @@ export const StatsContainer: React.FC<StatsContainerProps> = ({
           accountType === "voluntary-data" ||
           accountType === "all"
             ? (stats.profitFromSHU ?? 0) > 0
-              ? "growth this period"
-              : "no distribution this period"
-            : "no distribution this period"
+              ? "pertumbuhan periode ini"
+              : "tidak ada distribusi periode ini"
+            : "tidak ada distribusi periode ini"
         }
         trend={
           accountType === "mandatory" ||
@@ -150,28 +150,28 @@ export const StatsContainer: React.FC<StatsContainerProps> = ({
             : "none"
         }
       />
-      {/* Mandatory Deposits Profit */}
+      {/* Keuntungan Setoran Wajib */}
       {accountType === "mandatory" && (
         <StatsCard
-          title="MANDATORY DEPOSITS PROFIT"
+          title="KEUNTUNGAN SETORAN WAJIB"
           amount={getAmount(stats.growthFromDeposits)}
           percentage="+4.0%" // mock value
-          description="growth from deposits"
+          description="pertumbuhan dari setoran"
           trend={getTrend(stats.growthFromDeposits)}
         />
       )}
-      {/* Voluntary Deposits Profit and Withdrawals for voluntary and voluntary-data */}
+      {/* Keuntungan Setoran Sukarela dan Penarikan untuk akun sukarela dan voluntary-data */}
       {showVoluntaryCards && (
         <>
           <StatsCard
-            title="VOLUNTARY DEPOSITS PROFIT"
+            title="KEUNTUNGAN SETORAN SUKARELA"
             amount={
               accountType === "voluntary-data"
                 ? getAmount(stats.growthFromDeposits)
                 : "Rp 600.000"
             }
             percentage="+5.0%" // mock value
-            description="growth this period"
+            description="pertumbuhan periode ini"
             trend={
               accountType === "voluntary-data"
                 ? getTrend(stats.growthFromDeposits)
@@ -179,7 +179,7 @@ export const StatsContainer: React.FC<StatsContainerProps> = ({
             }
           />
           <StatsCard
-            title="ACCOUNT WITHDRAWALS"
+            title="PENARIKAN AKUN"
             amount={
               accountType === "voluntary-data"
                 ? `-Rp ${
@@ -189,7 +189,7 @@ export const StatsContainer: React.FC<StatsContainerProps> = ({
                 : "-Rp 200.000"
             }
             percentage="+3.2%" // mock value
-            description="of total balance"
+            description="dari total saldo"
             trend={
               accountType === "voluntary-data"
                 ? getTrend(

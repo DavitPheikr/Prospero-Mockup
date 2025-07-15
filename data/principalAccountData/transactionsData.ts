@@ -77,7 +77,7 @@ export const principalTransactionsData: Transaction[] = [
   {
     refId: 'PRI789123456',
     transactionDate: 'Aug 1, 2024, 09:00am',
-    from: 'Principal Account Holder',
+    from: 'John Doe',
     type: 'Initial Principal Deposit',
     amount: 700.00,
     category: 'deposits'

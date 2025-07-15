@@ -19,15 +19,15 @@ export default function TransactionFilters({
   accountType,
 }: TransactionFiltersProps) {
   const baseFilters = [
-    { key: "all" as const, label: "All" },
-    { key: "deposits" as const, label: "Deposits" },
-    { key: "interest" as const, label: "Interest" },
-    { key: "shu" as const, label: "SHU Profits" },
+    { key: "all" as const, label: "Semua" },
+    { key: "deposits" as const, label: "Setoran" },
+    { key: "interest" as const, label: "Bunga" },
+    { key: "shu" as const, label: "Keuntungan SHU" },
   ];
 
   const filters =
     accountType === "voluntary" || accountType === "voluntary-data"
-      ? [...baseFilters, { key: "withdrawals" as const, label: "Withdrawals" }]
+      ? [...baseFilters, { key: "withdrawals" as const, label: "Penarikan" }]
       : baseFilters;
 
   return (

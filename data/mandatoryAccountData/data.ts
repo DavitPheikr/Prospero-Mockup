@@ -52,12 +52,12 @@ export const transactionsData = mandatoryTransactionsData.slice(0, 5).map(transa
   id: parseInt(transaction.refId.replace(/\D/g, '')),
   type: "incoming" as const,
   category: transaction.category as "deposit" | "interest" | "shu",
-  title: transaction.type === "Mandatory Contribution" ? "Mandatory Contribution" : 
-         transaction.type === "Monthly Interest" ? "Monthly Interest Profit" : 
-         "SHU Profit Distribution",
-  subtitle: transaction.type === "Mandatory Contribution" ? "Monthly mandatory deposit" :
-            transaction.type === "Monthly Interest" ? "Interest earned on account balance" :
-            "Quarterly profit sharing",
+  title: transaction.type === "Mandatory Contribution" ? "Setoran Wajib" : 
+         transaction.type === "Monthly Interest" ? "Keuntungan Bunga Bulanan" : 
+         "Distribusi Keuntungan SHU",
+  subtitle: transaction.type === "Mandatory Contribution" ? "Setoran wajib bulanan" :
+            transaction.type === "Monthly Interest" ? "Bunga yang diperoleh dari saldo akun" :
+            "Pembagian keuntungan triwulanan",
   date: transaction.transactionDate.split(',')[0],
   amount: transaction.amount,
 }));

@@ -12,7 +12,7 @@ export const mandatoryTransactionsData: Transaction[] = [
   {
     refId: 'MAN123456789',
     transactionDate: 'Jan 5, 2025, 10:00am',
-    from: 'Davit Pheikrishvili',
+    from: 'John Doe',
     type: 'Mandatory Contribution',
     amount: 200.00,
     category: 'deposits'

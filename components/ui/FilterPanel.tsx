@@ -42,7 +42,7 @@ export default function FilterPanel({
   // Check if we need multiple rows (for transaction journal with date range)
   const needsMultipleRows = dateFields.length > 1;
   const selectFields = [cooperativeField, ...additionalFields];
-  
+
   return (
     <div className={styles.filters}>
       {needsMultipleRows ? (
@@ -94,7 +94,7 @@ export default function FilterPanel({
               </div>
             ))}
             <Button onClick={onReset} className={styles.clearButton}>
-              Reset Filter
+              Atur Ulang Filter
             </Button>
           </div>
         </>
@@ -110,7 +110,7 @@ export default function FilterPanel({
               options={field.options}
             />
           ))}
-          
+
           {dateFields.map((field, index) => (
             <div key={index} className={styles.dateGroup}>
               <label>{field.label}</label>
@@ -144,12 +144,12 @@ export default function FilterPanel({
               )}
             </div>
           ))}
-          
+
           <Button onClick={onReset} className={styles.clearButton}>
-            Reset Filter
+            Atur Ulang Filter
           </Button>
         </div>
       )}
     </div>
   );
-} 
+}

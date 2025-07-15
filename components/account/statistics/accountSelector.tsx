@@ -26,10 +26,10 @@ export default function AccountSelector({
     value: "principal" | "voluntary-data" | "voluntary" | "mandatory" | "all";
     label: string;
   }[] = [
-    { value: "all", label: "All Accounts" },
-    { value: "mandatory", label: "Mandatory Accounts" },
-    { value: "principal", label: "Principal Accounts" },
-    { value: "voluntary", label: "Voluntary Accounts" },
+    { value: "all", label: "Semua Akun" },
+    { value: "mandatory", label: "Simpanan Wajib" },
+    { value: "principal", label: "Simpanan Pokok" },
+    { value: "voluntary", label: "Simpanan Sukarela" },
   ];
 
   return (

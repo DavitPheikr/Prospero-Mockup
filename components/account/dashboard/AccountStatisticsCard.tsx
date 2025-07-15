@@ -88,24 +88,32 @@ export default function AccountStatisticsCard({
             <TrendingUp size={24} />
           </div>
           <div>
-            <h3 className={styles.title}>Account Statistics</h3>
+            <h3 className={styles.title}>Statistik Akun</h3>
             <div className={styles.periodSelector}>
               <Calendar size={16} />
-              <span className={styles.periodLabel}>Period:</span>
-              {periods.map((period, index) => (
-                <button
-                  key={period}
-                  onClick={() => setActivePeriod(period)}
-                  className={`${styles.periodOption} ${
-                    activePeriod === period ? styles.active : ""
-                  }`}
-                >
-                  {period}
-                  {index < periods.length - 1 && (
-                    <span className={styles.separator}>,</span>
-                  )}
-                </button>
-              ))}
+              <span className={styles.periodLabel}>Periode:</span>
+              {periods.map((period, index) => {
+                let label = period;
+                if (period === "all") label = "Semua";
+                else if (period === "1 year") label = "1 Tahun";
+                else if (period === "6 months") label = "6 Bulan";
+                else if (period === "3 months") label = "3 Bulan";
+                else if (period === "1 month") label = "1 Bulan";
+                return (
+                  <button
+                    key={period}
+                    onClick={() => setActivePeriod(period)}
+                    className={`${styles.periodOption} ${
+                      activePeriod === period ? styles.active : ""
+                    }`}
+                  >
+                    {label}
+                    {index < periods.length - 1 && (
+                      <span className={styles.separator}>,</span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -115,7 +123,7 @@ export default function AccountStatisticsCard({
         <div className={styles.mainStat}>
           <div className={styles.mainStatHeader}>
             <DollarSign size={20} />
-            <span className={styles.mainStatLabel}>Total Profit:</span>
+            <span className={styles.mainStatLabel}>Total Keuntungan:</span>
           </div>
           <div className={styles.mainStatValue}>
             {formatCurrency(currentData.totalProfit || 0)}
@@ -135,7 +143,7 @@ export default function AccountStatisticsCard({
                 <TrendingUp size={18} />
               </div>
               <span className={styles.breakdownLabel}>
-                Profit From Interest
+                Keuntungan dari Bunga
               </span>
             </div>
             <div className={styles.breakdownValue}>
@@ -156,7 +164,7 @@ export default function AccountStatisticsCard({
               <div className={styles.breakdownIcon}>
                 <PiggyBank size={18} />
               </div>
-              <span className={styles.breakdownLabel}>Profit From SHU</span>
+              <span className={styles.breakdownLabel}>Keuntungan dari SHU</span>
             </div>
             <div className={styles.breakdownValue}>
               {formatCurrency(currentData.profitFromSHU || 0)}
@@ -182,7 +190,7 @@ export default function AccountStatisticsCard({
                     <DollarSign size={18} />
                   </div>
                   <span className={styles.breakdownLabel}>
-                    Profit From Deposits
+                    Keuntungan dari Simpanan
                   </span>
                 </div>
                 <div className={styles.breakdownValue}>
@@ -207,7 +215,7 @@ export default function AccountStatisticsCard({
           className={styles.viewDetailedButton}
           onClick={handleButtonClick}
         >
-          View Detailed Earnings
+          Lihat Rincian Pendapatan
         </Button>
       </div>
     </div>
