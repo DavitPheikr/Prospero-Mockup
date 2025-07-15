@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import styles from "@/scss/components/layout/sideNavbar.module.scss";
 import clsx from "clsx";
 import { navLinks } from "@/data/navLinks";
+import { employeeNavLinks } from "@/data/employeeNavLinks";
 
 const accountPages = [
   "/account",
@@ -23,30 +24,23 @@ export default function SideNavbar() {
 
   const isAccountPage = accountPages.some((page) => pathname.startsWith(page));
 
-  let displayedLinks = navLinks;
+  let displayedLinks: typeof navLinks = [];
 
   if (isAccountPage) {
     displayedLinks = navLinks.filter((link) =>
       accountPages.includes(link.href)
     );
+  } else if (pathname.startsWith("/employee")) {
+    displayedLinks = employeeNavLinks;
+  } else if (pathname.startsWith("/ministry")) {
+    displayedLinks = navLinks
+      .filter((link) => link.href.startsWith("/raport"))
+      .map((link) => ({ ...link, href: `/ministry${link.href}` }));
   } else {
-    // For non-account pages, filter out account links
+    // Fallback for other pages like homepage
     displayedLinks = navLinks.filter(
       (link) => !accountPages.includes(link.href)
     );
-
-    // If it's an employee or ministry path, update report links
-    if (pathname.startsWith("/employee") || pathname.startsWith("/ministry")) {
-      const prefix = pathname.startsWith("/employee")
-        ? "/employee"
-        : "/ministry";
-      displayedLinks = displayedLinks.map((link) => {
-        if (link.href.startsWith("/raport")) {
-          return { ...link, href: `${prefix}${link.href}` };
-        }
-        return link;
-      });
-    }
   }
 
   return (
