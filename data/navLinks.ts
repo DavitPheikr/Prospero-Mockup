@@ -34,6 +34,12 @@ export const navLinks: NavLink[] = [
     href: "/transactions",
     icon: Repeat,
   },
+  
+    {
+      label: "Loans",
+      href: "/loans",
+      icon: Wallet,
+    },
   {
     label: "Balance Sheet",
     href: "/raport/balance-sheet",
@@ -64,8 +70,4 @@ export const navLinks: NavLink[] = [
     href: "/raport/transaction-journal",
     icon: ClipboardList,
   },
-  {
-    label: "Member Details",
-    href: "/employee/member-transactions",
-    icon: Wallet,}
-]; 
+];

@@ -7,6 +7,7 @@ import {
   PieChart,
   FileCheck,
   ClipboardList,
+  Wallet,
   type LucideIcon,
 } from "lucide-react";
 
@@ -57,4 +58,9 @@ export const employeeNavLinks: NavLink[] = [
     href: "/employee/raport/transaction-journal",
     icon: ClipboardList,
   },
-]; 
+  {
+    label: "Member Details",
+    href: "/employee/member-transactions",
+    icon: Wallet,
+  },
+];

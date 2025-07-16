@@ -4,8 +4,8 @@ import React, { useState, useMemo } from "react";
 import styles from "@/scss/components/employee/transactionsSheet.module.scss";
 import FilterPanel from "@/components/ui/FilterPanel";
 import Button from "@/components/ui/Button";
-import AccountSelector from "@/components/account/statistics/accountSelector";
-import DateRangePicker from "@/components/account/transactions/DateRangePicker";
+import AccountSelector from "@/components/ClientSide/statistics/accountSelector";
+import DateRangePicker from "@/components/ClientSide/transactions/DateRangePicker";
 
 // Mock member data
 const members = [

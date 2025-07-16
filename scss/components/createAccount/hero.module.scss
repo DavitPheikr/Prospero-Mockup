@@ -36,7 +36,11 @@
     flex: 1;
   }
 }
-
+.rightColumnLeftPart{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
 .pageContainer {
   padding: 2rem;

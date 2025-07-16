@@ -16,6 +16,7 @@ const accountPages = [
   "/account/voluntary",
   "/account/principal",
   "/account/voluntary-data",
+  "/loans",
 ];
 
 export default function SideNavbar() {

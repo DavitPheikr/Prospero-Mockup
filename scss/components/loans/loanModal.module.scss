@@ -1,0 +1,78 @@
+@use '../../abstract' as *;
+
+.installmentCard {
+  background: $backgrounds-secondary;
+  border: 1px solid $ui-border-gray;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 8px rgba(9,75,156,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: $font-primary;
+  max-width: 480px;
+}
+
+.installmentTitle {
+  font-weight: $weight-bold;
+  font-size: $font-md;
+  margin-bottom: 0.5rem;
+  color: $brand-dark-gray;
+  letter-spacing: 0.01em;
+  font-family: $font-primary;
+}
+
+.installmentAmount {
+  font-size: $font-3xl;
+  font-weight: $weight-bold;
+  color: $brand-sky;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+  font-family: $font-primary;
+}
+
+.installmentRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: $font-base;
+  color: $brand-sky;
+  font-weight: $weight-medium;
+  margin-bottom: 0.4rem;
+  font-family: $font-primary;
+
+  &:nth-of-type(2) {
+    color: $brand-dark-gray;
+  }
+}
+
+.installmentDetailsRow {
+  display: flex;
+  align-items: center;
+}
+
+.installmentDetailsCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  color: $brand-medium-gray;
+  font-size: $font-base;
+
+  &:last-child {
+    align-items: flex-end;
+  }
+}
+
+.installmentDetailsLabel {
+  font-weight: $weight-semibold;
+  font-size: $font-base;
+  color: $brand-dark-gray;
+}
+
+.installmentDivider {
+  width: 1px;
+  align-self: stretch;
+  background: $ui-border-gray;
+  margin: 0 .5rem;
+}

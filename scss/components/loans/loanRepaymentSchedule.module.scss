@@ -1,0 +1,88 @@
+@use '../../abstract' as *;
+
+.scheduleCard {
+  font-family: $font-primary;
+}
+
+.title {
+  font-size: $font-lg;
+  font-weight: $weight-bold;
+  color: $brand-dark-gray;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-base;
+  background: none;
+  th, td {
+    padding: 0.75rem 0.5rem;
+    text-align: start;
+    border-bottom: 1px solid $ui-border-gray;
+  }
+
+  th {
+    font-weight: $weight-bold;
+    color: $navbar-gray-light;
+    background: none;
+    font-size: $font-base;
+  }
+
+  td {
+    color: $brand-dark-gray;
+    font-size: $font-base;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  th:nth-child(1), td:nth-child(1) {
+    width: 120px;
+  }
+  th:nth-child(2), td:nth-child(2) {
+    width: 180px;
+  }
+  th:nth-child(3), td:nth-child(3) {
+    width: 160px;
+  }
+}
+
+.scrollBody {
+  max-height: 480px; // 10 rows * 48px
+  overflow-y: auto;
+  width: 100%;
+}
+
+.scrollBody .table {
+  margin: 0;
+}
+
+.scrollBody tr {
+  background: none;
+}
+
+@media (max-width: 900px) {
+  .scheduleCard {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .table {
+    font-size: $font-xs;
+
+    th, td {
+      padding: 0.5rem 0.25rem;
+    }
+    th:nth-child(1), td:nth-child(1) {
+      width: 70px;
+    }
+    th:nth-child(2), td:nth-child(2) {
+      width: 110px;
+    }
+    th:nth-child(3), td:nth-child(3) {
+      width: 90px;
+    }
+  }
+}

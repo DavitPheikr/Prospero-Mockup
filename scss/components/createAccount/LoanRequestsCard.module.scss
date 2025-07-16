@@ -1,0 +1,35 @@
+@use '../../abstract/' as *;
+
+.loansCard {
+  background: $backgrounds-secondary;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
+.title {
+  font-family: $font-primary;
+  font-size: $font-md;
+  font-weight: $weight-bold;
+  color: $brand-dark-gray;
+  margin: 0;
+}
+
+.transactionsList {
+  padding: 0 1.5rem;
+}
+
+.footer {
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+}
+
+.viewAllButton {
+  width: 100%;
+}

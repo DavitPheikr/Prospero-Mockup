@@ -1,0 +1,253 @@
+@use '../../abstract' as *;
+
+
+.pageWrapper{
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #FFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  height: fit-content;
+width: 90%;
+
+}
+
+.pageTitle {
+  font-family: $font-primary;
+  font-size: $font-2xl;
+  font-weight: $weight-bold;
+  color: $brand-dark-gray;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.introSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 60vh;
+  width: 100%;
+  background: none; // removed dark background
+  padding-top: 2.5rem;
+  padding-bottom: 1rem; // reduced from 2.5rem
+  // Removed justify-content: center for natural vertical alignment
+}
+
+.introHero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+}
+
+.introHeroTitle {
+  font-family: $font-primary;
+  font-size: $font-2xl;
+  font-weight: $weight-bold;
+  color: $navbar-gray-light;
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.introHeroDescription {
+  font-family: $font-primary;
+  font-size: $font-base-lg;
+  color: $brand-dark-gray;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.introHeroButton {
+  background: $brand-primary;
+  font-family: $font-primary;
+  font-size: $font-base-lg;
+  font-weight: $weight-bold;
+  padding: 0.85rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(83,146,204,0.12);
+  transition: all 0.2s;
+  margin-top: 0.5rem;
+  border: none;
+  cursor: pointer;
+
+ 
+
+}
+
+.introFeaturesGrid {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.introFeatureCard {
+  background: $backgrounds-secondary;
+  border: 1px solid $ui-border-gray;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(83,146,204,0.06);
+  padding: 1.25rem 1rem;
+  min-width: 180px;
+  max-width: 220px;
+    flex: 1 1 160px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.introFeatureIcon {
+  margin-bottom: 0.25rem;
+  color: $brand-sky;
+  background: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  svg {
+    width: 22px;
+    height: 22px;
+    color: $brand-sky;
+  }
+}
+
+.introFeatureTitle {
+  font-family: $font-primary;
+  font-size: $font-md;
+  font-weight: $weight-bold;
+  color: $navbar-gray-light;
+  margin-bottom: 0.15rem;
+}
+
+.introFeatureDescription {
+  font-family: $font-primary;
+  font-size: $font-base;
+  color: $brand-dark-gray;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.submittedLoanWrapper {
+ margin-top: 2rem;
+ border: 1px solid $ui-border-gray;
+ max-width: fit-content;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font-primary;
+}
+
+.submittedLoanIcon {
+  color: $ui-success;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submittedLoanTitle {
+  font-size: $font-2xl;
+  font-weight: $weight-bold;
+  color: $brand-primary;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.submittedLoanSubtitle {
+  font-size: $font-base-lg;
+  color: $brand-dark-gray;
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.submittedLoanDetails {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: $font-md;
+  background: none;
+}
+
+.detailRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding: 0.25rem 0;
+}
+
+.detailLabel {
+  font-weight: $weight-bold;
+  color: $navbar-gray-light;
+  min-width: 160px;
+  display: inline-block;
+  font-size: $font-base-lg;
+}
+
+.detailValue {
+  color: $brand-dark-gray;
+  font-weight: $weight-medium;
+  font-size: $font-base-lg;
+  word-break: break-word;
+}
+
+.statusPending {
+  color: $ui-warning;
+  font-weight: $weight-bold;
+  margin-left: 0.5rem;
+}
+
+.statusApproved {
+  color: $ui-success;
+  font-weight: $weight-bold;
+  margin-left: 0.5rem;
+}
+
+.submittedLoanRedirect {
+  font-size: $font-base;
+  color: $brand-medium-gray;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .introFeaturesGrid {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .introFeatureCard {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+.submittedLoanWrapper {
+    max-width: 98vw;
+    padding: 1.5rem 0.5rem;
+  }
+  .submittedLoanDetails {
+    max-width: 100vw;
+    gap: 1rem;
+  }
+  .detailLabel {
+    min-width: 120px;
+    font-size: $font-base;
+  }
+  .detailValue {
+    font-size: $font-base;
+  }
+}
