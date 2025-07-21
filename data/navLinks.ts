@@ -9,6 +9,7 @@ import {
   FileCheck,
   ClipboardList,
   Wallet,
+  Calendar,
   type LucideIcon,
 } from "lucide-react";
 
@@ -34,12 +35,16 @@ export const navLinks: NavLink[] = [
     href: "/transactions",
     icon: Repeat,
   },
-  
-    {
-      label: "Loans",
-      href: "/loans",
-      icon: Wallet,
-    },
+  {
+    label: "Loans",
+    href: "/loans",
+    icon: Wallet,
+  },
+  {
+    label: "Events",
+    href: "http://localhost:9124",
+    icon: Calendar,
+  },
   {
     label: "Balance Sheet",
     href: "/raport/balance-sheet",

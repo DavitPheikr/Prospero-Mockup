@@ -8,6 +8,9 @@ import {
   FileCheck,
   ClipboardList,
   Wallet,
+  UserPlus,
+  Calendar,
+  Shield,
   type LucideIcon,
 } from "lucide-react";
 
@@ -27,6 +30,21 @@ export const employeeNavLinks: NavLink[] = [
     label: "Loan Requests",
     href: "/employee/loan-requests",
     icon: FileSignature,
+  },
+  {
+    label: "Tambah Member",
+    href: "http://localhost:9123#members",
+    icon: UserPlus,
+  },
+  {
+    label: "Tambah Events",
+    href: "http://localhost:9123#events",
+    icon: Calendar,
+  },
+  {
+    label: "Risk Management",
+    href: "http://208.87.132.115:32771",
+    icon: Shield,
   },
   {
     label: "Balance Sheet",

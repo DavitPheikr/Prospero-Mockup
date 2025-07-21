@@ -10,6 +10,8 @@ import PaymentAlertCard from "@/components/ClientSide/dashboard/PaymentAlertCard
 import RecentTransactionsCard from "../dashboard/RecentTransactionsCard";
 import AccountStatisticsCard from "../dashboard/AccountStatisticsCard";
 import LoanRequestsCard from "../dashboard/LoanRequestsCard";
+import EventsCard from "../dashboard/EventsCard";
+
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasVoluntaryAccount, setHasVoluntaryAccount] = useState(false);
@@ -54,6 +56,7 @@ export default function Hero() {
             <div className={styles.rightColumnLeftPart}>
               <AccountStatisticsCard type="all" />
               <LoanRequestsCard />
+              <EventsCard />
             </div>
 
             <RecentTransactionsCard type={"all"} />

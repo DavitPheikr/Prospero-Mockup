@@ -6,6 +6,21 @@
   flex-direction: column;
 }
 
+.navbarHeader {
+  padding: 16px;
+  background: linear-gradient(135deg, #24425b 0%, #6288c9 100%);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.navbarTitle {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
 .navItem {
   height: 48px;
   display: flex;
@@ -20,6 +35,19 @@
 .navItem.selected {
   background: linear-gradient(to right, #24425b, #6288c9);
   color: white;
+}
+
+.navItem.externalLink {
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.navItem.externalLink:hover {
+  background-color: #f8f9fa;
 }
 
 .iconContainer {

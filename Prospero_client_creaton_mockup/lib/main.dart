@@ -19,7 +19,7 @@ class CooperativeApp extends StatelessWidget {
           seedColor: const Color(0xFF004C97),
           brightness: Brightness.light,
         ),
-        textTheme: GoogleFonts.latoTextTheme(),
+        textTheme: GoogleFonts.interTextTheme(),
         useMaterial3: true,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
